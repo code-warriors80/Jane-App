@@ -1,5 +1,5 @@
 // AppNavigator.js
-
+import { NavigationContainer } from "@react-navigation/native";
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -7,77 +7,80 @@ import HomeScreen from '../../screens/home';
 import ProfileScreen from '../../screens/profile';
 import BookingScreen from '../../screens/booking';
 import FIcon from 'react-native-vector-icons/Feather';
+import LoginScreen from "../../screens/login";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 const HomeStack = () => (
-    <Stack.Navigator>
-      <Stack.Screen name="HomeStack" component={HomeScreen} options={{ headerShown: false }} />
-    </Stack.Navigator>
-  );
+  <Stack.Navigator>
+    <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+  </Stack.Navigator>
+);
 
-  const BookingStack = () => (
-    <Stack.Navigator>
-      <Stack.Screen name="BookingStack" component={BookingScreen} options={{ headerShown: false }} />
-    </Stack.Navigator>
-  );
-  
-  const ProfileStack = () => (
-    <Stack.Navigator>
-      <Stack.Screen name="ProfileStack" component={ProfileScreen} options={{ headerShown: false }} />
-    </Stack.Navigator>
-  );
+const BookingStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen name="Booking" component={BookingScreen} options={{ headerShown: false }} />
+  </Stack.Navigator>
+);
+
+const ProfileStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }} />
+  </Stack.Navigator>
+);
+
+const AuthStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+  </Stack.Navigator>
+);
 
 const AppNavigator = () => {
   return (
-        <Tab.Navigator
-        screenOptions={({ route }) => ({
-            tabBarIcon: ({ focused }) => {
-              let iconName;
-  
-              switch (route.name) {
-                case 'Home':
-                  iconName = focused ? 'home' : 'home';
-                  break;
-                case 'Booking':
-                    iconName = focused ? 'calendar' : 'calendar';
-                    break
-                case 'Profile':
-                  iconName = focused ? 'user' : 'user';
-                  break;
-                // Add more cases for additional tabs
-  
-                default:
-                  break;
-              }
-  
-              // Return the icon component
-              return <FIcon name={iconName} size={25} color={focused ? '#007AFF' : '#A9A9A9'} />;
-            },
-          })}
-        >
-            <Tab.Screen name="Home" component={HomeStack}   
-                options={{
-                    tabBarLabel: 'Home', 
-                    headerShown: false 
-                }}
-            />
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="AuthStack" headerMode="none">
+        <Stack.Screen name="AuthStack" component={AuthStack} />
+        <Stack.Screen
+          name="MainTab"
+          component={MainTab}
+          options={{ animationEnabled: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
-            <Tab.Screen name="Booking" component={BookingStack} 
-                            options={{
-                                tabBarLabel: 'Booking', 
-                                headerShown: false 
-                            }}
-            />
+const MainTab = () => {
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused }) => {
+          let iconName;
 
-            <Tab.Screen name="Profile" component={ProfileStack} 
-                            options={{
-                                tabBarLabel: 'Profile',
-                                headerShown: false 
-                            }}
-            />
-        </Tab.Navigator>
+          switch (route.name) {
+            case 'HomeStack':
+              iconName = focused ? 'home' : 'home';
+              break;
+            case 'BookingStack':
+              iconName = focused ? 'calendar' : 'calendar';
+              break;
+            case 'ProfileStack':
+              iconName = focused ? 'user' : 'user';
+              break;
+
+            default:
+              break;
+          }
+
+          return <FIcon name={iconName} size={25} color={focused ? '#007AFF' : '#A9A9A9'} />;
+        },
+      })}
+    >
+      <Tab.Screen name="HomeStack" component={HomeStack} options={{headerShown: false}}/>
+      <Tab.Screen name="BookingStack" component={BookingStack} options={{headerShown: false}}/>
+      <Tab.Screen name="ProfileStack" component={ProfileStack} options={{headerShown: false}}/>
+    </Tab.Navigator>
   );
 };
 
