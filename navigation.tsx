@@ -1,4 +1,3 @@
-import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 // Screen
@@ -12,7 +11,6 @@ const Stack = createStackNavigator();
 
 const Navigation = () => {
   return (
-    <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="OnBoarding" component={OnboardingScreen} />
             <Stack.Screen name="Home" component={HomeScreen} />
@@ -20,7 +18,6 @@ const Navigation = () => {
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Register" component={RegisterScreen} />
         </Stack.Navigator>
-    </ NavigationContainer>
   )
 }
 
