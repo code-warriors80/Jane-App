@@ -8,6 +8,9 @@ import ProfileScreen from '../../screens/profile';
 import BookingScreen from '../../screens/booking';
 import FIcon from 'react-native-vector-icons/Feather';
 import LoginScreen from "../../screens/login";
+import OnboardingScreen from "../../screens/onboarding";
+import RegisterScreen from "../../screens/register";
+import OtpScreen from "../../screens/otp/otp";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -32,7 +35,10 @@ const ProfileStack = () => (
 
 const AuthStack = () => (
   <Stack.Navigator>
+    <Stack.Screen name="Onboarding" component={OnboardingScreen} options={{ headerShown: false }} />
     <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+    <Stack.Screen name="Register" component={RegisterScreen} options={{ headerShown: false }} />
+    <Stack.Screen name="Otp" component={OtpScreen} options={{ headerShown: false }} />
   </Stack.Navigator>
 );
 
