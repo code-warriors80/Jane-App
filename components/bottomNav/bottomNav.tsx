@@ -1,5 +1,4 @@
 // AppNavigator.js
-import { NavigationContainer } from "@react-navigation/native";
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -44,7 +43,6 @@ const AuthStack = () => (
 
 const AppNavigator = () => {
   return (
-    <NavigationContainer>
       <Stack.Navigator initialRouteName="AuthStack" headerMode="none">
         <Stack.Screen name="AuthStack" component={AuthStack} />
         <Stack.Screen
@@ -53,7 +51,6 @@ const AppNavigator = () => {
           options={{ animationEnabled: false }}
         />
       </Stack.Navigator>
-    </NavigationContainer>
   );
 };
 
