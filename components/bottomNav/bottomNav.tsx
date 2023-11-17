@@ -11,6 +11,7 @@ import LoginScreen from "../../screens/login";
 import OnboardingScreen from "../../screens/onboarding";
 import RegisterScreen from "../../screens/register";
 import OtpScreen from "../../screens/otp/otp";
+import ProductScreen from '../../screens/products/products';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -30,6 +31,12 @@ const BookingStack = () => (
 const ProfileStack = () => (
   <Stack.Navigator>
     <Stack.Screen name="ProfileStack" component={ProfileScreen} options={{ headerShown: false }} />
+  </Stack.Navigator>
+);
+
+const ProductStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen name="ProductStack" component={ProductScreen} options={{ headerShown: false }} />
   </Stack.Navigator>
 );
 
@@ -69,6 +76,9 @@ const MainTab = () => {
             case 'Booking':
               iconName = focused ? 'calendar' : 'calendar';
               break;
+            case 'Products':
+              iconName = focused ? 'shopping-bag' : 'shopping-bag';
+              break;
             case 'Profile':
               iconName = focused ? 'user' : 'user';
               break;
@@ -80,13 +90,18 @@ const MainTab = () => {
           return <FIcon name={iconName} size={25} color={focused ? '#f53488' : '#A9A9A9'} />;
         },
         tabBarLabel: ({ focused }) => {
-          return <Text style={{ color: focused ? '#f53488' : '#A9A9A9' }}>{route.name}</Text>;
+          return <Text style={{ color: focused ? '#f53488' : '#A9A9A9', fontWeight: focused ? 'bold' : 'normal' }}>{route.name}</Text>;
+        },
+        tabBarStyle: {
+          height: 80, // Adjust the height as needed
+          paddingVertical: 10, // Adjust the padding as needed
         },
       })}
     >
-      <Tab.Screen name="Home" component={HomeStack} options={{headerShown: false}}/>
+      <Tab.Screen name="Home" component={HomeStack} options={{headerShown: false, }}/>
+      <Tab.Screen name="Products" component={ProductStack} options={{headerShown: false}}/>
       <Tab.Screen name="Booking" component={BookingStack} options={{headerShown: false}}/>
-      <Tab.Screen name="Profile" component={ProfileStack} options={{headerShown: false}}/>
+      <Tab.Screen name="Profile"  component={ProfileStack} options={{headerShown: false, tabBarLabelStyle: { paddingVertical: 8 }}}/>
     </Tab.Navigator>
   );
 };
