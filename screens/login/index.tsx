@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity  } from 'react-native'
+import { View, Text, Button  } from 'react-native'
 import React from 'react'
 import tailwind from 'twrnc'
 import { useNavigation } from '@react-navigation/native'
@@ -10,7 +10,7 @@ const LoginScreen = () => {
   return (
     <View style={tailwind`flex-1 items-center justify-center`}>
       <Text>LoginScreen</Text>
-      <TouchableOpacity onPress={() => navigation.navigate('MainTab')}><Text>Login</Text></TouchableOpacity>
+      <Button title='Go to user Home' onPress={() => navigation.navigate('MainTab')} />
     </View>
   )
 }

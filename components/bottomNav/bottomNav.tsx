@@ -1,5 +1,6 @@
 // AppNavigator.js
 import React from 'react';
+import { Text } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from '../../screens/home';
@@ -16,34 +17,34 @@ const Stack = createStackNavigator();
 
 const HomeStack = () => (
   <Stack.Navigator>
-    <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+    <Stack.Screen name="HomeStack" component={HomeScreen} options={{ headerShown: false }} />
   </Stack.Navigator>
 );
 
 const BookingStack = () => (
   <Stack.Navigator>
-    <Stack.Screen name="Booking" component={BookingScreen} options={{ headerShown: false }} />
+    <Stack.Screen name="BookingStack" component={BookingScreen} options={{ headerShown: false }} />
   </Stack.Navigator>
 );
 
 const ProfileStack = () => (
   <Stack.Navigator>
-    <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }} />
+    <Stack.Screen name="ProfileStack" component={ProfileScreen} options={{ headerShown: false }} />
   </Stack.Navigator>
 );
 
 const AuthStack = () => (
   <Stack.Navigator>
-    <Stack.Screen name="Onboarding" component={OnboardingScreen} options={{ headerShown: false }} />
-    <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-    <Stack.Screen name="Register" component={RegisterScreen} options={{ headerShown: false }} />
-    <Stack.Screen name="Otp" component={OtpScreen} options={{ headerShown: false }} />
+    <Stack.Screen name="OnboardingStack" component={OnboardingScreen} options={{ headerShown: false }} />
+    <Stack.Screen name="LoginStack" component={LoginScreen} options={{ headerShown: false }} />
+    <Stack.Screen name="RegisterStack" component={RegisterScreen} options={{ headerShown: false }} />
+    <Stack.Screen name="OtpStack" component={OtpScreen} options={{ headerShown: false }} />
   </Stack.Navigator>
 );
 
 const AppNavigator = () => {
   return (
-      <Stack.Navigator initialRouteName="AuthStack" headerMode="none">
+      <Stack.Navigator initialRouteName="AuthStack"   screenOptions={{headerShown: false}}>
         <Stack.Screen name="AuthStack" component={AuthStack} />
         <Stack.Screen
           name="MainTab"
@@ -62,13 +63,13 @@ const MainTab = () => {
           let iconName;
 
           switch (route.name) {
-            case 'HomeStack':
+            case 'Home':
               iconName = focused ? 'home' : 'home';
               break;
-            case 'BookingStack':
+            case 'Booking':
               iconName = focused ? 'calendar' : 'calendar';
               break;
-            case 'ProfileStack':
+            case 'Profile':
               iconName = focused ? 'user' : 'user';
               break;
 
@@ -76,13 +77,16 @@ const MainTab = () => {
               break;
           }
 
-          return <FIcon name={iconName} size={25} color={focused ? '#007AFF' : '#A9A9A9'} />;
+          return <FIcon name={iconName} size={25} color={focused ? '#f53488' : '#A9A9A9'} />;
+        },
+        tabBarLabel: ({ focused }) => {
+          return <Text style={{ color: focused ? '#f53488' : '#A9A9A9' }}>{route.name}</Text>;
         },
       })}
     >
-      <Tab.Screen name="HomeStack" component={HomeStack} options={{headerShown: false}}/>
-      <Tab.Screen name="BookingStack" component={BookingStack} options={{headerShown: false}}/>
-      <Tab.Screen name="ProfileStack" component={ProfileStack} options={{headerShown: false}}/>
+      <Tab.Screen name="Home" component={HomeStack} options={{headerShown: false}}/>
+      <Tab.Screen name="Booking" component={BookingStack} options={{headerShown: false}}/>
+      <Tab.Screen name="Profile" component={ProfileStack} options={{headerShown: false}}/>
     </Tab.Navigator>
   );
 };

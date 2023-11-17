@@ -91,7 +91,7 @@ const ProfileScreen = () => {
 
           <View style={baseStyle}>
             {secUtils.map((util) => (
-              <Pressable>
+              <Pressable onPress={() => alert('man')}>
                 <View
                   key={util.text}
                   style={tailwind`flex flex-row items-center gap-1`}
