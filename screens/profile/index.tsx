@@ -66,9 +66,8 @@ const ProfileScreen = () => {
         <View style={tailwind`px-4 mt-6`}>
           <View style={base}>
             {priUtils.map((util) => (
-              <Pressable>
+              <Pressable key={util.text}>
                 <View
-                  key={util.text}
                   style={tailwind`flex flex-row items-center gap-1`}
                 >
                   <View style={tailwind`p-1`}>
@@ -91,9 +90,8 @@ const ProfileScreen = () => {
 
           <View style={baseStyle}>
             {secUtils.map((util) => (
-              <Pressable onPress={() => alert('man')}>
+              <Pressable key={util.text} onPress={() => alert('man')}>
                 <View
-                  key={util.text}
                   style={tailwind`flex flex-row items-center gap-1`}
                 >
                   <View style={tailwind`p-1`}>
