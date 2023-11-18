@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
-//import { useNavigation } from '@react-navigation/native';
+
 
 const OnboardingScreen = ({ navigation }: any) => {
   const slides = [
