@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "jane-app",
-    "slug": "jane-app",
+    "name": "myExpoTSApp",
+    "slug": "myExpoTSApp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

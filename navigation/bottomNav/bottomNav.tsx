@@ -3,16 +3,18 @@ import React from 'react';
 import { Text } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from '../../screens/home';
-import ProfileScreen from '../../screens/profile';
-import BookingScreen from '../../screens/booking';
 import FIcon from 'react-native-vector-icons/Feather';
+
+
 import LoginScreen from "../../screens/login";
 import OnboardingScreen from "../../screens/onboarding";
 import RegisterScreen from "../../screens/register";
 import OtpScreen from "../../screens/otp/otp";
 import ProductScreen from '../../screens/products/products';
 import EditDetailsScreen from '../../screens/profile/Edit_Details';
+import HomeScreen from '../../screens/home';
+import ProfileScreen from '../../screens/profile';
+import BookingScreen from '../../screens/booking';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
