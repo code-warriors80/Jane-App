@@ -7,9 +7,14 @@ const OnboardingScreen = () => {
   const navigation = useNavigation()
   return (
     <View style={tailwind`flex-1 justify-center items-center`}>
-        <TouchableOpacity onPress={() => navigation.navigate('RegisterStack')}>
+      
+
+
+
+
+        {/* <TouchableOpacity onPress={() => navigation.navigate('login')}>
           <Text>Register</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
     </View>
   );
 };
