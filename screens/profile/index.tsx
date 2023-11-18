@@ -3,10 +3,11 @@ import React, { useState } from "react";
 import tailwind from "twrnc";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { background, base, baseStyle, priUtils, secUtils } from "../../utils";
+import { useNavigation } from "@react-navigation/native";
 
 const ProfileScreen = () => {
   const [modal, setModal] = useState(false);
-
+  const navigation = useNavigation()
   return (
     <ScrollView style={tailwind`bg-white`}>
       <Modal
@@ -66,7 +67,7 @@ const ProfileScreen = () => {
         <View style={tailwind`px-4 mt-6`}>
           <View style={base}>
             {priUtils.map((util) => (
-              <Pressable key={util.text}>
+              <Pressable key={util.text} onPress={() => navigation.navigate('EditDetailsStack')}>
                 <View
                   style={tailwind`flex flex-row items-center gap-1`}
                 >

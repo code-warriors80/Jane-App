@@ -12,6 +12,7 @@ import OnboardingScreen from "../../screens/onboarding";
 import RegisterScreen from "../../screens/register";
 import OtpScreen from "../../screens/otp/otp";
 import ProductScreen from '../../screens/products/products';
+import EditDetailsScreen from '../../screens/profile/Edit_Details';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -31,6 +32,7 @@ const BookingStack = () => (
 const ProfileStack = () => (
   <Stack.Navigator>
     <Stack.Screen name="ProfileStack" component={ProfileScreen} options={{ headerShown: false }} />
+    <Stack.Screen name="EditDetailsStack" component={EditDetailsScreen} options={{ headerShown: false }} />
   </Stack.Navigator>
 );
 
@@ -93,8 +95,9 @@ const MainTab = () => {
           return <Text style={{ color: focused ? '#f53488' : '#A9A9A9', fontWeight: focused ? 'bold' : 'normal' }}>{route.name}</Text>;
         },
         tabBarStyle: {
-          height: 80, // Adjust the height as needed
+          height: 70, // Adjust the height as needed
           paddingVertical: 10, // Adjust the padding as needed
+          paddingBottom: 12
         },
       })}
     >
