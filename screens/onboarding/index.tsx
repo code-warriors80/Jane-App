@@ -7,8 +7,8 @@ const OnboardingScreen = () => {
   const navigation = useNavigation()
   return (
     <View style={tailwind`flex-1 justify-center items-center`}>
-      
 
+    
 
 
 
