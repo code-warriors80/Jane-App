@@ -1,10 +1,14 @@
+import { NavigationContainer } from "@react-navigation/native";
 import { Text, View } from 'react-native';
-import Navigation from './navigation';
+import tailwind from 'twrnc'
+import AppNavigator from './components/bottomNav/bottomNav';
 
 export default function App() {
   return (
-    <View>
-      <Navigation />
+    <View style={tailwind`flex-1`}>
+      <NavigationContainer>
+          <AppNavigator />
+      </NavigationContainer>
     </View>
   );
 }
