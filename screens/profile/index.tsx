@@ -1,13 +1,14 @@
-import { View, Text, Image, ScrollView, Modal, Pressable } from "react-native";
+import { Image, Modal, Pressable, ScrollView, Text, View } from "react-native";
 import React, { useState } from "react";
-import tailwind from "twrnc";
-import Icon from "react-native-vector-icons/FontAwesome";
 import { background, base, baseStyle, priUtils, secUtils } from "../../utils";
+
+import Icon from "react-native-vector-icons/FontAwesome";
+import tailwind from "twrnc";
 import { useNavigation } from "@react-navigation/native";
 
 const ProfileScreen = () => {
   const [modal, setModal] = useState(false);
-  const navigation = useNavigation()
+  const navigation = useNavigation();
   return (
     <ScrollView style={tailwind`bg-white`}>
       <Modal
@@ -67,10 +68,11 @@ const ProfileScreen = () => {
         <View style={tailwind`px-4 mt-6`}>
           <View style={base}>
             {priUtils.map((util) => (
-              <Pressable key={util.text} onPress={() => navigation.navigate('EditDetailsStack')}>
-                <View
-                  style={tailwind`flex flex-row items-center gap-1`}
-                >
+              <Pressable
+                key={util.text}
+                onPress={() => navigation.navigate(util.text)}
+              >
+                <View style={tailwind`flex flex-row items-center gap-1`}>
                   <View style={tailwind`p-1`}>
                     <Icon
                       name={util.icon.name}
@@ -91,10 +93,11 @@ const ProfileScreen = () => {
 
           <View style={baseStyle}>
             {secUtils.map((util) => (
-              <Pressable key={util.text} onPress={() => alert('man')}>
-                <View
-                  style={tailwind`flex flex-row items-center gap-1`}
-                >
+              <Pressable
+                key={util.text}
+                onPress={() => navigation.navigate(util.text)}
+              >
+                <View style={tailwind`flex flex-row items-center gap-1`}>
                   <View style={tailwind`p-1`}>
                     <Icon
                       name={util.icon.name}
