@@ -7,27 +7,27 @@ import tailwind from 'twrnc';
 const slides = [
   {
     key: 'slide1',
-    title: 'Welcome!',
-    text: 'This is the first screen.',
-    image: require('../../assets/images/book.png')
-  },
-  {
-    key: 'slide2',
-    title: 'Chat with your stylist',
-    text: 'This is the second screen.',
-    image: require('../../assets/images/chat.png'),
-  },
-  {
-    key: 'slide3',
-    title: 'Get the best of our services',
-    text: 'This is the third screen.',
+    title: 'Welcome',
+    text: 'Beatiful ladies deserve beautiful braids!',
     image: require('../../assets/images/pic1.png'),
   },
   {
-    key: 'slide5',
+    key: 'slide2',
     title: 'Book an Appointment',
-    text: 'This is the fourth screen.',
+    text: 'Book an appointment from your comfort zone.',
     image: require('../../assets/images/book.png'),
+  },
+  {
+    key: 'slide3',
+    title: 'We offer Home services to',
+    text: 'Your goodlooks is our best interest',
+    image: require('../../assets/images/pic2.png'),
+  },
+  {
+    key: 'slide4',
+    title: 'Chat with your stylist',
+    text: 'communicate you choiced hair style',
+    image: require('../../assets/images/chat.png'),
   },
 
   // Add more slides as needed
@@ -58,8 +58,8 @@ const OnboardingScreen: React.FC = ({ navigation }) => {
         showDoneButton={true}
         onDone={handleDone}
         onSkip={() => navigation.navigate('Register')}
-        dotStyle={tailwind`w-6 h-6 rounded-full bg-gray-300`}
-        activeDotStyle={tailwind`w-6 h-6 rounded-full bg-pink-500`}
+        dotStyle={tailwind`w-3 h-3 rounded-full bg-gray-300`}
+        activeDotStyle={tailwind`w-4 h-3 rounded-full bg-pink-500`}
         renderDoneButton={() => (
           <TouchableOpacity style={tailwind`mr-4`} onPress={handleDone}>
             <Text style={tailwind`text-pink-500 font-semibold`}>Done</Text>
@@ -71,50 +71,3 @@ const OnboardingScreen: React.FC = ({ navigation }) => {
 };
 
 export default OnboardingScreen;
-
-
-
-
-// import { Text, Image } from 'react-native'
-// import React from 'react'
-// import Onboarding from 'react-native-onboarding-swiper';
-// import tailwind from 'twrnc';
-
-// import { useNavigation } from '@react-navigation/native';
-
-// const OnboardingScreen = () => {
-//   const navigation = useNavigation()
-//   return (
-// <Onboarding
-//   showPagination={true}
-//   showDone={true}
-//   showNext={false}
-//   showSkip={true}
-//   onSkip={() => navigation.navigate('Register')}
-//   bottomBarColor='white'
-//   onDone={() => navigation.navigate('Register')}
-//   pages={[
-//     {
-//       backgroundColor: '#fff',
-//       image: <Image source={{uri: 'https://img.freepik.com/free-vector/sign-up-concept-illustration_114360-7885.jpg?size=626&ext=jpg&uid=R61415680&ga=GA1.1.899355817.1694867026&semt=ais'}} style={tailwind`w-90 h-90 opacity-100`}/>,
-//       title: <Text style={tailwind`mb-3`}>Welcome</Text>,
-//       subtitle: <Text style={tailwind`mb-15 text-gray-600 w-60 text-center`}>Let's get started by creating your account.</Text>,
-//     },
-//     {
-//       backgroundColor: '#fff',
-//       image: <Image source={{uri: 'https://img.freepik.com/free-vector/flat-online-shopping-concept_52683-63899.jpg?size=626&ext=jpg&uid=R61415680&ga=GA1.1.899355817.1694867026&semt=ais'}} style={tailwind`w-90 h-90 opacity-100`}/>,
-//       title: <Text style={tailwind`mb-3`}>Find Your Favorites</Text>,
-//       subtitle: <Text style={tailwind`mb-15 text-gray-600 w-60 text-center`}>Browse our curated selection and discover what you love.</Text>,
-//     },
-//     {
-//       backgroundColor: '#fff',
-//       image: <Image source={{uri: 'https://img.freepik.com/free-vector/hand-drawn-flat-design-delivery-concept_23-2149157498.jpg?size=626&ext=jpg&uid=R61415680&ga=GA1.1.899355817.1694867026&semt=ais'}} style={tailwind`w-85 h-85 opacity-100`}/>,
-//       title: <Text style={tailwind`mb-3`}>Enjoy Your Delivery!</Text>,
-//       subtitle: <Text style={tailwind`mb-15 text-gray-600 w-60 text-center`}>Sit back, relax, and anticipate your order arriving soon</Text>
-//     }
-//   ]}
-// />
-//   )
-// }
-
-// export default OnboardingScreen;
