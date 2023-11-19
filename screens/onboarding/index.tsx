@@ -26,7 +26,7 @@ const slides = [
   {
     key: 'slide4',
     title: 'Chat with your stylist',
-    text: 'communicate you choiced hair style',
+    text: 'A chat feature implimented just for you!',
     image: require('../../assets/images/chat.png'),
   },
 
