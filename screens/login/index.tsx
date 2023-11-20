@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity,Image } from 'react-native';
 import tailwind from 'twrnc';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
 
 const LoginScreen: React.FC = () => {
+  const navigation = useNavigation()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -51,11 +53,11 @@ const LoginScreen: React.FC = () => {
         </View>
       </View>
 
-      <TouchableOpacity style={tailwind`bg-pink-500 py-3 w-80 h-14 mx-6 px-3 rounded-md items-center`} onPress={handleSignup}>
+      <TouchableOpacity style={tailwind`bg-pink-500 py-3 w-80 h-14 mx-6 px-3 rounded-md items-center`} onPress={() => navigation.navigate('MainTab')}>
         <Text style={tailwind`text-white text-lg  font-semibold`}>Sign in</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={tailwind`py-3 px-6 ml-40 rounded-md mb-4`}>
+      <TouchableOpacity style={tailwind`py-3 px-6 ml-40 rounded-md mb-4`} >
         <Text style={tailwind`text-lg `}>forgot password?</Text>
       </TouchableOpacity>
     </View>
