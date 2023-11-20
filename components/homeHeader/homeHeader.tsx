@@ -17,13 +17,13 @@ const HomeHeader = () => {
     }
   return (
     <View style={tailwind`px-6`}>
-            <View style={tailwind`flex-row items-center justify-between pt-8 pb-4`}>
-                <Image source={dp} style={tailwind`w-10 h-10 rounded-xl`}/>
+            <View style={tailwind`flex-row items-start justify-between pt-8 pb-4`}>
+                <Image source={dp} style={tailwind`w-18 h-18 rounded-xl`}/>
                 <View style={tailwind`flex-row gap-3`}>
-                        <TouchableOpacity style={tailwind`border-2 border-gray-200 p-3 rounded-xl`}>
+                        <TouchableOpacity style={tailwind`border-2 border-[#f53488] p-3 rounded-xl`}>
                             <FIcon name='bell' size={15} color='#f53488'/>
                         </TouchableOpacity>
-                        <TouchableOpacity style={tailwind`border-2 border-gray-200 p-3 rounded-xl`} onPress={Love}>
+                        <TouchableOpacity style={tailwind`border-2 border-[#f53488] p-3 rounded-xl`} onPress={Love}>
                             {loved !== false ?  <Icon name='heart' size={15} color='#f53488'/> :  <FIcon name='heart' size={15} color='#f53488'/> }
                         </TouchableOpacity>
                 </View>

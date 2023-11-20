@@ -13,6 +13,7 @@ import React from "react";
 import tailwind from "twrnc";
 
 import { useNavigation } from "@react-navigation/native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const ChatItem = () => {
   const navigation = useNavigation();
@@ -44,8 +45,9 @@ const ChatsScreen = () => {
   const navigation = useNavigation();
   const Arr = new Array(15).fill(0);
   return (
+    <SafeAreaView style={tailwind`bg-white flex-1`}>
     <View style={tailwind`bg-white flex-1`}>
-      <View style={tailwind`bg-[#f53488] h-[170px] pt-15 relative px-5`}>
+      <View style={tailwind`bg-[#f53488] relative py-5 px-5`}>
         <View style={tailwind`flex flex-row gap-x-4 items-center`}>
           <Pressable onPress={() => navigation.goBack()}>
             <FIcon name="arrow-left" color="white" size={24} />
@@ -71,6 +73,7 @@ const ChatsScreen = () => {
         ))}
       </ScrollView>
     </View>
+    </SafeAreaView>
   );
 };
 

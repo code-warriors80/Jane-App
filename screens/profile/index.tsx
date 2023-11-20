@@ -73,15 +73,15 @@ const ProfileScreen = () => {
 
           <View  style={tailwind`flex-row items-start justify-between gap-3 pt-8 pb-4`}>
             <View>
-              <Image source={dp} style={tailwind`w-17 h-17 rounded-xl mb-3`}/>
+              <Image source={dp} style={tailwind`w-15 h-15 rounded-xl mb-3`}/>
               <Text style={tailwind`text-2xl font-bold`}>Young Savage</Text>
             <Text style={tailwind`text-lg text-gray-500`}>muctarmohammed07@gmail.com</Text>
             </View>
                 <View style={tailwind`flex-row gap-3`}>
-                            <TouchableOpacity style={tailwind`border-2 border-gray-200 p-3 rounded-xl`}>
+                            <TouchableOpacity style={tailwind`border-2 border-[#f53488] p-3 rounded-xl`}>
                                 <FIcon name='bell' size={15} color='#f53488'/>
                             </TouchableOpacity>
-                            <TouchableOpacity style={tailwind`border-2 border-gray-200 p-3 rounded-xl`} onPress={Love}>
+                            <TouchableOpacity style={tailwind`border-2 border-[#f53488] p-3 rounded-xl`} onPress={Love}>
                                 {loved !== false ?  <Icon name='heart' size={15} color='#f53488'/> :  <FIcon name='heart' size={15} color='#f53488'/> }
                             </TouchableOpacity>
                   </View>

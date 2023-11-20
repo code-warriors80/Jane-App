@@ -13,6 +13,7 @@ import FIcon from "react-native-vector-icons/Feather";
 import React, { FC } from "react";
 import tailwind from "twrnc";
 import { useNavigation } from "@react-navigation/native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 interface Props {
   index: number;
@@ -52,10 +53,11 @@ const ChatItemScreen = () => {
   const navigation = useNavigation();
   const Arr = new Array(6).fill(0);
   return (
+    <SafeAreaView style={tailwind`bg-white flex-1`}>
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={tailwind`bg-white flex-1`}>
         <View
-          style={tailwind`bg-[#f53488] h-[90px] flex flex-row justify-between items-center pt-10 relative px-5`}
+          style={tailwind`bg-[#f53488] flex flex-row justify-between items-center p-5 relative`}
         >
           <View style={tailwind`flex flex-row gap-x-4 items-center`}>
             <Pressable onPress={() => navigation.goBack()}>
@@ -92,6 +94,7 @@ const ChatItemScreen = () => {
         </View>
       </View>
     </TouchableWithoutFeedback>
+    </SafeAreaView>
   );
 };
 

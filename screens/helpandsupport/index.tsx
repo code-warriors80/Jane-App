@@ -12,6 +12,7 @@ import FIcon from "react-native-vector-icons/Feather";
 import React, { FC } from "react";
 import tailwind from "twrnc";
 import { useNavigation } from "@react-navigation/native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 interface Props {
   title: string;
@@ -41,10 +42,11 @@ const HelpAndSupportScreen = () => {
   const navigation = useNavigation();
 
   return (
+    <SafeAreaView style={tailwind`bg-white flex-1`}>
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={tailwind`bg-white flex-1`}>
         <View
-          style={tailwind`bg-[#f53488] h-[90px] flex flex-row justify-between items-center pt-10 relative px-5`}
+          style={tailwind`bg-[#f53488] flex flex-row justify-between items-center relative p-5 p-5`}
         >
           <View style={tailwind`flex flex-row gap-x-4 items-center`}>
             <Pressable onPress={() => navigation.goBack()}>
@@ -80,6 +82,7 @@ const HelpAndSupportScreen = () => {
         </View>
       </View>
     </TouchableWithoutFeedback>
+    </SafeAreaView>
   );
 };
 
