@@ -14,7 +14,7 @@ const HomeScreen = () => {
       <HomeHeader />
       <View style={tailwind`flex-1 items-center justify-center`}>
         <Text>Home</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Profile')}><Text>Login</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate(' AuthStack')}><Text>Login</Text></TouchableOpacity>
       </View>
     </SafeAreaView>
   )

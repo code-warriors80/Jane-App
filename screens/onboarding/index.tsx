@@ -44,7 +44,7 @@ const OnboardingScreen: React.FC = ({ navigation }) => {
   const handleDone = () => {
     // Handle when the user finishes onboarding
     // For instance: navigate to the main app screen
-    navigation.navigate('SignupScreen');
+    navigation.navigate('LoginStack');
   };
 
   return (
@@ -55,10 +55,9 @@ const OnboardingScreen: React.FC = ({ navigation }) => {
         showSkip={true}
         showDoneButton={true}
         onDone={handleDone}        
-        onSkip={() => navigation.navigate('SignupScreen')}
         dotStyle={tailwind`w-6 h-6 rounded-full bg-gray-300`}
         activeDotStyle={tailwind`w-6 h-6 rounded-full bg-pink-500`}
-        onSkip={() => navigation.navigate('Register')}
+        onSkip={() => navigation.navigate('LoginStack')}
         dotStyle={tailwind`w-3 h-3 rounded-full bg-gray-300`}
         activeDotStyle={tailwind`w-4 h-3 rounded-full bg-pink-500`}
         renderDoneButton={() => (
