@@ -89,10 +89,11 @@ const ProfileScreen = () => {
 
           <View style={tailwind`flex-1`}>
             <MenuList icon='credit-card' title='Payment Method' link={() => navigation.navigate('EditDetailsStack')}/>
-            <MenuList icon='message-circle' title='Chat'/>
+            <MenuList icon='message-circle' title='Chat' link={() => navigation.navigate('ChatStack')}/>
             <MenuList icon='lock' title='Change Password'/>
             <MenuList icon='users' title='Invite Friends'/>
             <MenuList icon='users' title='FAQS'/>
+            <MenuList icon='users' title='Help &  Support' link={() => navigation.navigate('HelpsupportStack')}/>
             <MenuList icon='help-circle' title='About Us'/>
             <MenuList icon='log-out' title='Loggout' link={() => setModal(true)}/>
           </View>

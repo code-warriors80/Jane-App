@@ -54,17 +54,17 @@ const ProfileStack = () => (
       options={{ headerShown: false }}
     />
     <Stack.Screen
-      name="Chat"
+      name="ChatStack"
       component={ChatsScreen}
       options={{ headerShown: false }}
     />
     <Stack.Screen
-      name="ChatItem"
+      name="ChatItemStack"
       component={ChatItemScreen}
       options={{ headerShown: false }}
     />
     <Stack.Screen
-      name="Help & support"
+      name="HelpsupportStack"
       component={HelpAndSupportScreen}
       options={{ headerShown: false }}
     />

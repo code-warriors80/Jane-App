@@ -18,7 +18,7 @@ const ChatItem = () => {
   const navigation = useNavigation();
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate("ChatItem")}
+      onPress={() => navigation.navigate("ChatItemStack")}
       style={tailwind`flex flex-row justify-between items-start px-4 py-3`}
     >
       <View style={tailwind`flex flex-row gap-x-3 items-start`}>
