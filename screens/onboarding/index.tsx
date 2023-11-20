@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import tailwind from 'twrnc';
 
-
 const slides = [
   {
     key: 'slide1',
@@ -19,7 +18,7 @@ const slides = [
   },
   {
     key: 'slide3',
-    title: 'We offer Home services to',
+    title: 'We offer Home services',
     text: 'Your goodlooks is our best interest',
     image: require('../../assets/images/pic2.png'),
   },
@@ -29,8 +28,6 @@ const slides = [
     text: 'A chat feature implimented just for you!',
     image: require('../../assets/images/chat.png'),
   },
-
-  // Add more slides as needed
 ];
 const OnboardingScreen: React.FC = ({ navigation }) => {
   const renderItem = ({ item }) => {
@@ -46,7 +43,7 @@ const OnboardingScreen: React.FC = ({ navigation }) => {
   const handleDone = () => {
     // Handle when the user finishes onboarding
     // For instance: navigate to the main app screen
-    // navigation.navigate('MainAppScreen');
+    navigation.navigate('SignupScreen');
   };
 
   return (
@@ -56,7 +53,10 @@ const OnboardingScreen: React.FC = ({ navigation }) => {
         renderItem={renderItem}
         showSkip={true}
         showDoneButton={true}
-        onDone={handleDone}
+        onDone={handleDone}        
+        onSkip={() => navigation.navigate('SignupScreen')}
+        dotStyle={tailwind`w-6 h-6 rounded-full bg-gray-300`}
+        activeDotStyle={tailwind`w-6 h-6 rounded-full bg-pink-500`}
         onSkip={() => navigation.navigate('Register')}
         dotStyle={tailwind`w-3 h-3 rounded-full bg-gray-300`}
         activeDotStyle={tailwind`w-4 h-3 rounded-full bg-pink-500`}
@@ -69,5 +69,4 @@ const OnboardingScreen: React.FC = ({ navigation }) => {
     </View>
   );
 };
-
 export default OnboardingScreen;
