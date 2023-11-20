@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import tailwind from 'twrnc';
+import { useNavigation } from "@react-navigation/native";
 
 const slides = [
   {
@@ -69,4 +70,5 @@ const OnboardingScreen: React.FC = ({ navigation }) => {
     </View>
   );
 };
+
 export default OnboardingScreen;
