@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity,Image } from 'react-native';
 import tailwind from 'twrnc';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
 
 const SignupScreen: React.FC = () => {
+  const navigation = useNavigation()
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -98,6 +100,13 @@ const SignupScreen: React.FC = () => {
       <TouchableOpacity style={tailwind`bg-pink-500 py-3 w-80 h-14 mx-6 px-3 rounded-md items-center`} onPress={handleSignup}>
         <Text style={tailwind`text-white text-lg  font-semibold`}>Sign Up</Text>
       </TouchableOpacity>
+
+      <View style={tailwind`flex-row items-center justify-center gap-2`}>
+        <Text>Already Have An Account</Text>
+        <TouchableOpacity onPress={() =>  navigation.navigate("LoginStack")}>
+          <Text>Login</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

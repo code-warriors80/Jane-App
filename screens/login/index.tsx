@@ -14,6 +14,7 @@ const LoginScreen: React.FC = () => {
     console.log('Email:', email);
     console.log('Password:', password);
     // You might want to implement validation, API calls, etc.
+    navigation.navigate("OtpStack")
   };
 
   return (
@@ -53,13 +54,20 @@ const LoginScreen: React.FC = () => {
         </View>
       </View>
 
-      <TouchableOpacity style={tailwind`bg-pink-500 py-3 w-80 h-14 mx-6 px-3 rounded-md items-center`} onPress={() => navigation.navigate('MainTab')}>
+      <TouchableOpacity style={tailwind`bg-pink-500 py-3 w-80 h-14 mx-6 px-3 rounded-md items-center`} onPress={handleSignup}>
         <Text style={tailwind`text-white text-lg  font-semibold`}>Sign in</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={tailwind`py-3 px-6 ml-40 rounded-md mb-4`} >
         <Text style={tailwind`text-lg `}>forgot password?</Text>
       </TouchableOpacity>
+
+      <View style={tailwind`flex-row items-center justify-center gap-2`}>
+        <Text>New To Our App</Text>
+        <TouchableOpacity onPress={() =>  navigation.navigate("RegisterStack")}>
+          <Text>Register</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
