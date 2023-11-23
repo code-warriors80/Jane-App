@@ -73,16 +73,16 @@ const ProfileScreen = () => {
 
           <View  style={tailwind`flex-row items-start justify-between gap-3 pt-8 pb-4`}>
             <View>
-              <Image source={dp} style={tailwind`w-15 h-15 rounded-xl mb-3`}/>
-              <Text style={tailwind`text-2xl font-bold`}>Young Savage</Text>
-            <Text style={tailwind`text-lg text-gray-500`}>muctarmohammed07@gmail.com</Text>
+              <Image source={dp} style={tailwind`w-13 h-13 rounded-xl mb-3`}/>
+              <Text style={tailwind`text-xl font-bold`}>Young Savage</Text>
+            <Text style={tailwind`text-base text-gray-500`}>muctarmohammed07@gmail.com</Text>
             </View>
                 <View style={tailwind`flex-row gap-3`}>
-                            <TouchableOpacity style={tailwind`border-2 border-[#f53488] p-3 rounded-xl`}>
-                                <FIcon name='bell' size={15} color='#f53488'/>
+                          <TouchableOpacity style={tailwind`bg-[#ec589c] flex-row items-center justify-center p-3 rounded-xl`}>
+                                <FIcon name='bell' size={15} color='white'/>
                             </TouchableOpacity>
-                            <TouchableOpacity style={tailwind`border-2 border-[#f53488] p-3 rounded-xl`} onPress={Love}>
-                                {loved !== false ?  <Icon name='heart' size={15} color='#f53488'/> :  <FIcon name='heart' size={15} color='#f53488'/> }
+                            <TouchableOpacity style={tailwind`bg-[#ec589c] flex-row items-center justify-center p-3 rounded-xl`} onPress={Love}>
+                                {loved !== false ?  <Icon name='heart' size={15} color='white'/> :  <FIcon name='heart' size={15} color='white'/> }
                             </TouchableOpacity>
                   </View>
           </View>

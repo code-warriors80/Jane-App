@@ -54,16 +54,6 @@ const ProfileStack = () => (
       options={{ headerShown: false }}
     />
     <Stack.Screen
-      name="ChatStack"
-      component={ChatsScreen}
-      options={{ headerShown: false }}
-    />
-    <Stack.Screen
-      name="ChatItemStack"
-      component={ChatItemScreen}
-      options={{ headerShown: false }}
-    />
-    <Stack.Screen
       name="HelpsupportStack"
       component={HelpAndSupportScreen}
       options={{ headerShown: false }}
@@ -71,11 +61,16 @@ const ProfileStack = () => (
   </Stack.Navigator>
 );
 
-const ProductStack = () => (
+const ChatStack = () => (
   <Stack.Navigator>
     <Stack.Screen
-      name="ProductStack"
-      component={ProductScreen}
+      name="ChatStack"
+      component={ChatsScreen}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="ChatItemStack"
+      component={ChatItemScreen}
       options={{ headerShown: false }}
     />
   </Stack.Navigator>
@@ -136,8 +131,8 @@ const MainTab = () => {
             case "Booking":
               iconName = focused ? "calendar" : "calendar";
               break;
-            case "Products":
-              iconName = focused ? "shopping-bag" : "shopping-bag";
+            case "Chat":
+              iconName = focused ? "message-circle" : "message-circle";
               break;
             case "Profile":
               iconName = focused ? "user" : "user";
@@ -151,7 +146,7 @@ const MainTab = () => {
             <FIcon
               name={iconName}
               size={25}
-              color={focused ? "#f53488" : "#A9A9A9"}
+              color={focused ? "#ec589c" : "#A9A9A9"}
             />
           );
         },
@@ -159,7 +154,7 @@ const MainTab = () => {
           return (
             <Text
               style={{
-                color: focused ? "#f53488" : "#A9A9A9",
+                color: focused ? "#ec589c" : "#A9A9A9",
                 fontWeight: focused ? "bold" : "normal",
               }}
             >
@@ -180,8 +175,8 @@ const MainTab = () => {
         options={{ headerShown: false }}
       />
       <Tab.Screen
-        name="Products"
-        component={ProductStack}
+        name="Chat"
+        component={ChatStack}
         options={{ headerShown: false }}
       />
       <Tab.Screen

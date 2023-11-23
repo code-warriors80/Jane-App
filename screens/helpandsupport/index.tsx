@@ -46,7 +46,7 @@ const HelpAndSupportScreen = () => {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={tailwind`bg-white flex-1`}>
         <View
-          style={tailwind`bg-[#f53488] flex flex-row justify-between items-center relative p-5 p-5`}
+          style={tailwind`bg-[#ec589c] flex flex-row justify-between items-center relative p-5 p-5`}
         >
           <View style={tailwind`flex flex-row gap-x-4 items-center`}>
             <Pressable onPress={() => navigation.goBack()}>
@@ -74,7 +74,7 @@ const HelpAndSupportScreen = () => {
             />
           </View>
 
-          <TouchableOpacity style={tailwind`bg-[#f53488] rounded-lg py-2`}>
+          <TouchableOpacity style={tailwind`bg-[#ec589c] rounded-lg py-2`}>
             <Text style={tailwind`text-white text-center text-lg font-bold`}>
               Submit
             </Text>

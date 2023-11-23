@@ -4,6 +4,7 @@ import FIcon from 'react-native-vector-icons/Feather';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import dp from '../../assets/matheus-ferrero-W7b3eDUb_2I-unsplash.jpeg'
 import tailwind from 'twrnc'
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const HomeHeader = () => {
     const [loved, setLoved] = useState(false)
@@ -16,30 +17,21 @@ const HomeHeader = () => {
         }
     }
   return (
-    <View style={tailwind`px-6`}>
-            <View style={tailwind`flex-row items-start justify-between pt-8 pb-4`}>
-                <Image source={dp} style={tailwind`w-18 h-18 rounded-xl`}/>
-                <View style={tailwind`flex-row gap-3`}>
-                        <TouchableOpacity style={tailwind`border-2 border-[#f53488] p-3 rounded-xl`}>
-                            <FIcon name='bell' size={15} color='#f53488'/>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={tailwind`border-2 border-[#f53488] p-3 rounded-xl`} onPress={Love}>
-                            {loved !== false ?  <Icon name='heart' size={15} color='#f53488'/> :  <FIcon name='heart' size={15} color='#f53488'/> }
-                        </TouchableOpacity>
+        <View style={tailwind`px-6 mb-3`}>
+                <View style={tailwind`flex-row items-start justify-between pt-8 pb-4`}>
+                    <Image source={dp} style={tailwind`w-13 h-13 rounded-xl`}/>
+                    <View style={tailwind`flex-row gap-3`}>
+                            <TouchableOpacity style={tailwind`bg-[#ec589c] flex-row items-center justify-center p-3 rounded-xl`}>
+                                <FIcon name='bell' size={15} color='white'/>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={tailwind`bg-[#ec589c] flex-row items-center justify-center p-3 rounded-xl`} onPress={Love}>
+                                {loved !== false ?  <Icon name='heart' size={15} color='white'/> :  <FIcon name='heart' size={15} color='white'/> }
+                            </TouchableOpacity>
+                    </View>
                 </View>
-            </View>
-            <Text style={tailwind`text-2xl font-bold`}>Hi, Young Savage</Text>
-            <Text style={tailwind`text-lg text-gray-500`}>Location</Text>
-            <View style={tailwind`flex-row items-center justify-between gap-2 border-2 border-gray-200 px-3 py-2 rounded-xl mt-2`}>
-                    <TouchableOpacity>
-                    <FIcon name='search' size={18} color='#f53488' style={tailwind``}/>
-                    </TouchableOpacity>
-                    <TextInput placeholder='Search For Service' style={tailwind`flex-1`}/>
-                    <TouchableOpacity>
-                        <FIcon name='mic' size={18} color='#f53488'/>
-                    </TouchableOpacity>
-            </View>
-    </View>
+                <Text style={tailwind`text-xl font-bold`}>Hi, Young Savage</Text>
+                <Text style={tailwind`text-base text-gray-500`}>Location</Text>
+        </View>
   )
 }
 

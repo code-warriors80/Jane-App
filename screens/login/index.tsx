@@ -14,7 +14,7 @@ const LoginScreen: React.FC = () => {
     console.log('Email:', email);
     console.log('Password:', password);
     // You might want to implement validation, API calls, etc.
-    navigation.navigate("OtpStack")
+    navigation.navigate("MainTab")
   };
 
   return (

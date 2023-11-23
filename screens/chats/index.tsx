@@ -47,7 +47,7 @@ const ChatsScreen = () => {
   return (
     <SafeAreaView style={tailwind`bg-white flex-1`}>
     <View style={tailwind`bg-white flex-1`}>
-      <View style={tailwind`bg-[#f53488] relative py-5 px-5`}>
+      <View style={tailwind`bg-[#ec589c] relative py-5 px-5`}>
         <View style={tailwind`flex flex-row gap-x-4 items-center`}>
           <Pressable onPress={() => navigation.goBack()}>
             <FIcon name="arrow-left" color="white" size={24} />
