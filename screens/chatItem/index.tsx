@@ -25,7 +25,7 @@ const ChatBlockItem: FC<Props> = ({ index }) => {
   return (
     <View
       style={tailwind`${
-        isOwner ? "bg-[#f53488] mr-2 self-end" : "bg-white ml-2"
+        isOwner ? "bg-[#ec589c] mr-2 self-end" : "bg-white ml-2"
       } shadow rounded-3xl w-[80%] my-1.5 px-4 py-3`}
     >
       <Text
@@ -57,7 +57,7 @@ const ChatItemScreen = () => {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={tailwind`bg-white flex-1`}>
         <View
-          style={tailwind`bg-[#f53488] flex flex-row justify-between items-center p-5 relative`}
+          style={tailwind`bg-[#ec589c] flex flex-row justify-between items-center p-5 relative`}
         >
           <View style={tailwind`flex flex-row gap-x-4 items-center`}>
             <Pressable onPress={() => navigation.goBack()}>
@@ -86,7 +86,7 @@ const ChatItemScreen = () => {
             />
             <FIcon
               name="send"
-              color="#f53488"
+              color="#ec589c"
               style={tailwind`absolute right-5 top-4`}
               size={21}
             />
