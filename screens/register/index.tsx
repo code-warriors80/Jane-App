@@ -26,7 +26,7 @@ const SignupScreen: React.FC = () => {
     <ScrollView style={tailwind`my-3`}>
 
       <View style={tailwind`items-center`}>
-        <Text style={tailwind`text-3xl mt-10 `}>Register</Text>
+        <Text style={tailwind`text-3xl`}>Register</Text>
         <Image
           source={require('../../assets/images/pic1.png')}
           style={tailwind`w-50 h-50`}

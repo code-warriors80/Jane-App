@@ -18,10 +18,10 @@ const LoginScreen: React.FC = () => {
   };
 
   return (
-    <View style={tailwind``}>
+    <View>
 
       <View style={tailwind`items-center`}>
-        <Text style={tailwind`text-3xl mt-10 `}>Login</Text>
+        <Text style={tailwind`text-3xl`}>Login</Text>
         <Image
           source={require('../../assets/images/pic2.png')}
           style={tailwind`w-50 h-50 mb-4`}/>
