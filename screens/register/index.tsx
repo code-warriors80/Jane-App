@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity,Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
 import tailwind from 'twrnc';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
@@ -23,91 +23,92 @@ const SignupScreen: React.FC = () => {
   };
 
   return (
-    <View style={tailwind`flex-1 justify-center p-8`}>
+    <ScrollView style={tailwind`my-3`}>
 
       <View style={tailwind`items-center`}>
         <Text style={tailwind`text-3xl`}>Register</Text>
         <Image
           source={require('../../assets/images/pic1.png')}
-          style={tailwind`w-80 h-80`}
-          resizeMode="contain"
+          style={tailwind`w-50 h-50`}
         />
       </View>
 
-      <View style={tailwind`mb-4`}>
-        <View style={tailwind`flex-row items-center`}>
-          <Icon name="person" size={20} style={tailwind`text-gray-400 mr-1`} /> 
-          <TextInput
-            style={tailwind`border rounded-3 px-3  border-gray-400 py-3 w-80`}
-            value={fullName}
-            onChangeText={setFullName}
-            placeholder="Enter your full name"
-          />
-        </View>
-      </View>
+      <View style={tailwind`mx-5`}>
+          <View style={tailwind`mb-4`}>
+            <View style={tailwind`px-4 flex-row items-center gap-2 border border-gray-400 rounded-3`}>
+              <Icon name="person" size={20} style={tailwind`text-gray-400`} /> 
+              <TextInput
+                style={tailwind`py-3 flex-1`}
+                value={fullName}
+                onChangeText={setFullName}
+                placeholder="Enter your full name"
+              />
+            </View>
+          </View>
 
-      <View style={tailwind`mb-4`}>
-        <View style={tailwind`flex-row items-center`}>
-          <Icon name="mail" size={20} style={tailwind`text-gray-400 mr-1`} /> 
-          <TextInput
-            style={tailwind`border rounded-3 px-3  border-gray-400 py-3 w-80`}
-            value={fullName}
-            onChangeText={setEmail}
-            placeholder="example@gmail.com"
-          />
-        </View>
-      </View>
+          <View style={tailwind`mb-4`}>
+            <View style={tailwind`px-4 flex-row items-center gap-2 border border-gray-400 rounded-3`}>
+              <Icon name="mail" size={20} style={tailwind`text-gray-400`} /> 
+              <TextInput
+                style={tailwind`py-3 flex-1`}
+                value={fullName}
+                onChangeText={setEmail}
+                placeholder="example@gmail.com"
+              />
+            </View>
+          </View>
 
-      <View style={tailwind`mb-4`}>
-        <View style={tailwind`flex-row items-center`}>
-          <Icon name="call" size={20} style={tailwind`text-gray-400 mr-1`} /> 
-          <TextInput
-            style={tailwind`border rounded-3 px-3  border-gray-400 py-3 w-80`}
-            value={phoneNumber}
-            onChangeText={setPhoneNumber}
-            placeholder="Enter your phone number"
-            keyboardType="phone-pad"
-          />
-        </View>
-      </View>
+          <View style={tailwind`mb-4`}>
+            <View style={tailwind`px-4 flex-row items-center gap-2 border border-gray-400 rounded-3`}>
+              <Icon name="call" size={20} style={tailwind`text-gray-400`} /> 
+              <TextInput
+                style={tailwind`py-3 flex-1`}
+                value={phoneNumber}
+                onChangeText={setPhoneNumber}
+                placeholder="Enter your phone number"
+                keyboardType="phone-pad"
+              />
+            </View>
+          </View>
 
-      <View style={tailwind`mb-4`}>
-        <View style={tailwind`flex-row items-center`}>
-          <Icon name="lock-closed" size={20} style={tailwind`text-gray-400 mr-1`} /> 
-          <TextInput
-            style={tailwind`border rounded-3 px-3  border-gray-400 py-3 w-80`}
-            value={password}
-            onChangeText={setPassword}
-            placeholder="Enter your password"
-            secureTextEntry={true}
-          />
-        </View>
-      </View>
+          <View style={tailwind`mb-4`}>
+            <View style={tailwind`px-4 flex-row items-center gap-2 border border-gray-400 rounded-3`}>
+              <Icon name="lock-closed" size={20} style={tailwind`text-gray-400`} /> 
+              <TextInput
+                style={tailwind`py-3 flex-1`}
+                value={password}
+                onChangeText={setPassword}
+                placeholder="Enter your password"
+                secureTextEntry={true}
+              />
+            </View>
+          </View>
 
-      <View style={tailwind`mb-4`}>
-        <View style={tailwind`flex-row items-center`}>
-          <Icon name="lock-closed" size={20} style={tailwind`text-gray-400 mr-1`} /> 
-          <TextInput
-            style={tailwind`border rounded-3 px-3  border-gray-400 py-3 w-80`}
-            value={confirmPassword}
-            onChangeText={setConfirmPassword}
-            placeholder="Confirm your password"
-            secureTextEntry={true}
-          />
-        </View>
-      </View>
+          <View style={tailwind`mb-4`}>
+            <View style={tailwind`px-4 flex-row items-center gap-2 border border-gray-400 rounded-3`}>
+              <Icon name="lock-closed" size={20} style={tailwind`text-gray-400 mr-2`} /> 
+              <TextInput
+                style={tailwind`py-3 flex-1`}
+                value={confirmPassword}
+                onChangeText={setConfirmPassword}
+                placeholder="Confirm your password"
+                secureTextEntry={true}
+              />
+            </View>
+          </View>
 
-      <TouchableOpacity style={tailwind`bg-pink-500 py-3 w-80 h-14 mx-auto px-2 rounded-md justify-center items-center`} onPress={handleSignup}>
-        <Text style={tailwind`text-white text-lg  font-semibold`}>Sign Up</Text>
-      </TouchableOpacity>
+          <TouchableOpacity style={tailwind`bg-pink-500 py-3  px-3 rounded-md mb-3`} onPress={handleSignup}>
+            <Text style={tailwind`text-white text-lg  font-semibold text-center`}>Sign Up</Text>
+          </TouchableOpacity>
 
-      <View style={tailwind`flex-row items-center justify-center gap-2`}>
-        <Text>Already Have An Account</Text>
-        <TouchableOpacity onPress={() =>  navigation.navigate("LoginStack")}>
-          <Text>Login</Text>
-        </TouchableOpacity>
+          <View style={tailwind`flex-row items-center justify-center gap-2`}>
+            <Text>Already Have An Account</Text>
+            <TouchableOpacity onPress={() =>  navigation.navigate("LoginStack")}>
+              <Text style={tailwind`text-[#ec589c]`}>Login</Text>
+            </TouchableOpacity>
+          </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
