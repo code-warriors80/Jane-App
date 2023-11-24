@@ -71,7 +71,7 @@ const OTPScreen: React.FC = () => {
       </View>
       <Text style={tailwind`text-lg mb-2`}>Resend in {timer} seconds</Text>
       {/* Timer display */}
-      <TouchableOpacity style={tailwind`bg-pink-500 py-3 px-6 rounded-md`} onPress={() => console.log(otp)}>
+      <TouchableOpacity style={tailwind`bg-[#ec589c] py-3 px-6 rounded-md`} onPress={() => console.log(otp)}>
         <Text style={tailwind`text-white text-lg font-semibold`}>Verify OTP</Text>
       </TouchableOpacity>
 

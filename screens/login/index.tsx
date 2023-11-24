@@ -57,7 +57,7 @@ const LoginScreen: React.FC = () => {
             <Text style={tailwind`text-lg text-right `}>forgot password?</Text>
           </TouchableOpacity>
 
-        <TouchableOpacity style={tailwind`bg-pink-500 py-3  px-3 rounded-md mb-3`} onPress={handleSignup}>
+        <TouchableOpacity style={tailwind`bg-[#ec589c] py-3  px-3 rounded-md mb-3`} onPress={handleSignup}>
             <Text style={tailwind`text-white text-lg  font-semibold text-center`}>Sign in</Text>
         </TouchableOpacity>
 
