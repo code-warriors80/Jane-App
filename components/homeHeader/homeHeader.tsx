@@ -11,6 +11,19 @@ const HomeHeader = () => {
 
     const [notificationModalVisible, setNotificationModalVisible] = useState(false);
 
+    const [notifications, setNotifications] = useState<Notification[]>([
+        { id: 1, message: 'Notification 1' },
+        { id: 2, message: 'Notification 2' },
+        { id: 3, message: 'Notification 3' },
+        { id: 4, message: 'Notification 4' },
+        { id: 5, message: 'Notification 5' },
+        { id: 6, message: 'Notification 6' },
+        { id: 7, message: 'Notification 7' },
+        { id: 8, message: 'Notification 8' },
+        { id: 9, message: 'Notification 9' },
+        // Add more notifications here
+      ]);
+
     const toggleNotificationModal = () => {
         setNotificationModalVisible(!notificationModalVisible);
     };
@@ -24,6 +37,11 @@ const HomeHeader = () => {
             setLoved(false)
         }
     }
+
+      const handleDelete = (id: number) => {
+    const updatedNotifications = notifications.filter((notification) => notification.id !== id);
+    setNotifications(updatedNotifications);
+  };
   return (
         <View style={tailwind`px-6 mb-3`}>
                 <View style={tailwind`flex-row items-start justify-between pt-8 pb-4`}>
@@ -35,8 +53,10 @@ const HomeHeader = () => {
 
                             {notificationModalVisible && (
                                 <NotificationModal
-                                notificationText="notification"
-                                onClose={toggleNotificationModal}
+                                    notifications={notifications}
+                                    notificationText="notification"
+                                    onClose={toggleNotificationModal}
+                                    onDelete={handleDelete}
                                 />
                             )}
 
