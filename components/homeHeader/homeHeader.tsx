@@ -12,16 +12,8 @@ const HomeHeader = () => {
     const [notificationModalVisible, setNotificationModalVisible] = useState(false);
 
     const [notifications, setNotifications] = useState<Notification[]>([
-        { id: 1, message: 'Notification 1' },
-        { id: 2, message: 'Notification 2' },
-        { id: 3, message: 'Notification 3' },
-        { id: 4, message: 'Notification 4' },
-        { id: 5, message: 'Notification 5' },
-        { id: 6, message: 'Notification 6' },
-        { id: 7, message: 'Notification 7' },
-        { id: 8, message: 'Notification 8' },
-        { id: 9, message: 'Notification 9' },
-        // Add more notifications here
+        { id: 1,title:'A chat from jame vllay', message: 'How can i locate your shop?'},
+        { id: 2,title:'A chat from jon doe', message: 'How much do make fring wig?'},
       ]);
 
     const toggleNotificationModal = () => {

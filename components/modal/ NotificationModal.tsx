@@ -1,12 +1,14 @@
 import React from 'react';
-import { View, Text, Modal, TouchableOpacity,StyleSheet ,Image} from 'react-native';
+import { View, Text, Modal, TouchableOpacity,StyleSheet ,Image,} from 'react-native';
 import FIcon from 'react-native-vector-icons/Feather';
 import tailwind from 'twrnc';
 import { Swipeable} from 'react-native-gesture-handler';
 
 interface Notification {
   id: number;
+  title: string;
   message: string;
+  date: Date;
 }
 
 interface NotificationModalProps {
@@ -25,24 +27,26 @@ const NotificationModal: React.FC<NotificationModalProps> = ({
   const renderNotificationItem = (notification: Notification) => {
     
     const swipeRight = () => {
-      onDelete(notification.id); // Call onDelete function with notification id
+      onDelete(notification.id);
     };
 
-    const renderRightActions = () => {
-      return (
-        <TouchableOpacity style={tailwind`bg-red-500 justify-center items-center`}>
-          <Text style={tailwind`text-pink`}>Delete</Text>
-        </TouchableOpacity>
-      );
-    };
+    // const renderRightActions = () => {
+    //   return (
+    //     // <TouchableOpacity style={tailwind`bg-red-500 justify-center items-center`}>
+    //     //   <Text style={tailwind`text-pink`}>Delete</Text>
+    //     // </TouchableOpacity>
+    //   );
+    // };
 
     return (
-      <Swipeable renderRightActions={renderRightActions} onSwipeableRightOpen={swipeRight}>
+      <Swipeable renderRightActions={renderRightActions}>
         <TouchableOpacity
           key={notification.id}
-          style={tailwind`flex flex-row justify-between items-center p-4 bg-gray-200 mt-2`}
+          style={tailwind`flex  p-4 bg-pink-400 opacity-90 mt-2`}
         >
-          <Text>{notification.message}</Text>
+          <Text style={tailwind`text-white`}>{notification.title}</Text>
+          <Text style={tailwind`mt-3 text-gray-100`}>{notification.message}</Text>
+        
         </TouchableOpacity>
       </Swipeable>
     );
@@ -62,8 +66,8 @@ const NotificationModal: React.FC<NotificationModalProps> = ({
           <TouchableOpacity onPress={onClose} style={styles.closeButton}>
             <FIcon name='chevron-left' size={30} color='#ec589c'/>
           </TouchableOpacity>
-          <Text style={tailwind`text-2xl mx-auto font-bold mb-4 mt-10`}>Notifications</Text>
-          <View>
+          <Text style={tailwind`text-2xl mx-auto font-bold mb-15 mt-4`}>Notifications</Text>
+          <View style={tailwind`flex-1`}>
             {Array.isArray(notifications) && notifications.length > 0 ? (
               notifications.map((notification) => renderNotificationItem(notification))
             ) : (
