@@ -19,7 +19,7 @@ const renderStars = (rating) => {
         key={i}
         name={isFilled ? 'star' : 'staro'}
         color='#ec589c'
-        size={12}
+        size={10}
       />
     );
   }
@@ -37,16 +37,16 @@ interface StylistListProps {
   }
 
   const StylistList: React.FC<StylistListProps> = ({image, name, icon, contact, rating, link}) => (
-    <TouchableOpacity onPress={link} style={tailwind`mx-2`}>
-        <Image source={image} style={tailwind`w-20 h-20 rounded-xl`} />
+    <TouchableOpacity onPress={link} style={tailwind`mr-5`}>
+        <Image source={image} style={tailwind`w-16 h-16 rounded-full`} />
         <View style={tailwind`mt-1`}>
-          <Text style={tailwind`font-bold text-lg`}>{name}</Text>
-          <View style={tailwind`flex-row items-center my-1`}>
+          <Text style={tailwind`font-bold text-sm text-center`}>{name}</Text>
+          <View style={tailwind`flex-row items-center my-1 mx-auto`}>
             {renderStars(rating)}
           </View>
-          <View style={tailwind`flex-row items-center mt-1`}>
+          <View style={tailwind`flex-row items-center justify-center mt-1 gap-1`}>
             <FIcon name={icon} color='black' size={12} />
-            <Text style={tailwind`ml-2 text-xs`}>{contact}</Text>
+            <Text style={tailwind`text-xs`}>{contact}</Text>
           </View>
         </View>
     </TouchableOpacity>
@@ -55,7 +55,7 @@ interface StylistListProps {
 const Stylist = () => {
   const Arr = new Array(3).fill(0);
   return (
-    <View style={tailwind`mb-5`}>
+    <View style={tailwind`mb-5 px-2`}>
         <Text style={tailwind`mb-3 font-extrabold text-lg`}>Hair Specialists</Text>
         <ScrollView horizontal  showsHorizontalScrollIndicator={false} style={tailwind`flex-row` }>
         {Arr.map((_, index) => (

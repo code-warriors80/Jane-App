@@ -12,7 +12,7 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={tailwind`flex-1 bg-white`}>
       <HomeHeader />
-      <ScrollView style={tailwind`flex-1 px-3`}>
+      <ScrollView showsVerticalScrollIndicator={false} style={tailwind`flex-1 px-3`}>
         <Advert />
         <Category />
         <Stylist />

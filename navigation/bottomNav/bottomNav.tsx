@@ -17,6 +17,7 @@ import OtpScreen from "../../screens/otp/otp";
 import ProductScreen from "../../screens/products/products";
 import ProfileScreen from "../../screens/profile";
 import RegisterScreen from "../../screens/register";
+import AboutScreen from '../../screens/about';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -56,6 +57,11 @@ const ProfileStack = () => (
     <Stack.Screen
       name="HelpsupportStack"
       component={HelpAndSupportScreen}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="AboutStack"
+      component={AboutScreen}
       options={{ headerShown: false }}
     />
   </Stack.Navigator>

@@ -37,7 +37,7 @@ const ProfileScreen = () => {
   }
   return (
     <SafeAreaView style={tailwind`flex-1 bg-white`}>
-        <ScrollView style={tailwind`flex-1 px-6`}>
+        <View style={tailwind`flex-1 px-6`}>
           <Modal
             animationType="none"
             transparent={true}
@@ -87,18 +87,18 @@ const ProfileScreen = () => {
                   </View>
           </View>
 
-          <View style={tailwind`flex-1`}>
-            <MenuList icon='credit-card' title='Payment Method' link={() => navigation.navigate('EditDetailsStack')}/>
-            <MenuList icon='message-circle' title='Chat' link={() => navigation.navigate('ChatStack')}/>
-            <MenuList icon='lock' title='Change Password'/>
-            <MenuList icon='users' title='Invite Friends'/>
-            <MenuList icon='users' title='FAQS'/>
-            <MenuList icon='users' title='Help &  Support' link={() => navigation.navigate('HelpsupportStack')}/>
-            <MenuList icon='help-circle' title='About Us'/>
+          <ScrollView showsVerticalScrollIndicator={false} style={tailwind`flex-1`}>
+            <MenuList icon='credit-card' title='Payment Method' link={() => {}}/>
+            <MenuList icon='edit' title='Update Profile' link={() => navigation.navigate('EditDetailsStack')}/>
+            <MenuList icon='lock' title='Change Password' link={() => {}}/>
+            <MenuList icon='users' title='Invite Friends' link={() => {}}/>
+            <MenuList icon='help-circle' title='FAQS' link={() => {}}/>
+            <MenuList icon='message-square' title='Help &  Support' link={() => navigation.navigate('HelpsupportStack')}/>
+            <MenuList icon='info' title='About Us' link={() => navigation.navigate('AboutStack')}/>
             <MenuList icon='log-out' title='Loggout' link={() => setModal(true)}/>
-          </View>
+          </ScrollView>
 
-        </ScrollView>
+        </View>
     </SafeAreaView>
   );
 };
