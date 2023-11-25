@@ -85,9 +85,9 @@ const AboutScreen: React.FC = () => {
                         <Button
                         mode={selectedTab === 'info' ? '' : ''}
                         onPress={() => setSelectedTab('info')}
-                        labelStyle={{ color: selectedTab === 'review' ? 'black' : '#ec589c' }}
+                        labelStyle={{ color: selectedTab === 'info' ? '#ec589c' : 'black' }}
                         >
-                        Info
+                        Information
                         </Button>
                         <Button
                         mode={selectedTab === 'review' ? '' : ''}

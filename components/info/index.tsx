@@ -10,7 +10,7 @@ const InfoScreen = () => {
     <View style={tailwind`px-3`}>
       <View style={tailwind`p-2`}>
         <Text style={tailwind`text-lg font-bold`}>About</Text>
-        <Text>This is the Information Tab</Text>
+        <Text style={tailwind`text-gray-500`}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, pariatur voluptate quidem at dolores facere unde officia nostrum, tempora quam voluptas quaerat omnis esse illo incidunt molestiae eum provident doloremque.</Text>
       </View>
       {/* Add your information content here */}
       <Stylist />

@@ -38,7 +38,7 @@ interface StylistListProps {
 
   const StylistList: React.FC<StylistListProps> = ({image, name, icon, contact, rating, link}) => (
     <TouchableOpacity onPress={link} style={tailwind`mr-5`}>
-        <Image source={image} style={tailwind`w-16 h-16 rounded-full`} />
+        <Image source={image} style={tailwind`w-14 h-14 rounded-full`} />
         <View style={tailwind`mt-1`}>
           <Text style={tailwind`font-bold text-sm text-center`}>{name}</Text>
           <View style={tailwind`flex-row items-center my-1 mx-auto`}>

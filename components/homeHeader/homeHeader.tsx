@@ -43,7 +43,7 @@ const HomeHeader = () => {
     setNotifications(updatedNotifications);
   };
   return (
-        <View style={tailwind`px-6 mb-3`}>
+        <View style={tailwind`px-6 mb-3 bg-white`}>
                 <View style={tailwind`flex-row items-start justify-between pt-8 pb-4`}>
                     <Image source={dp} style={tailwind`w-13 h-13 rounded-xl`}/>
                     <View style={tailwind`flex-row gap-3`}>
