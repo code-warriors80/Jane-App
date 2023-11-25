@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, Modal, TouchableOpacity,StyleSheet ,Image,} from 'react-native';
+import React, { useRef } from 'react';
+import { View, Text, Modal, TouchableOpacity,StyleSheet ,Animated,Image,} from 'react-native';
 import FIcon from 'react-native-vector-icons/Feather';
 import tailwind from 'twrnc';
 import { Swipeable} from 'react-native-gesture-handler';
@@ -24,41 +24,63 @@ const NotificationModal: React.FC<NotificationModalProps> = ({
   onClose,
   onDelete,
 }) => {
+  const swipeAnimatedValue = useRef(new Animated.Value(0)).current;
+
   const renderNotificationItem = (notification: Notification) => {
-    
     const swipeRight = () => {
-      onDelete(notification.id);
+      Animated.timing(swipeAnimatedValue, {
+        toValue: 1,
+        duration: 250,
+        useNativeDriver: false,
+      }).start(() => {
+        onDelete(notification.id); // Call onDelete function with notification id
+        swipeAnimatedValue.setValue(0);
+      });
     };
 
-    // const renderRightActions = () => {
-    //   return (
-    //     // <TouchableOpacity style={tailwind`bg-red-500 justify-center items-center`}>
-    //     //   <Text style={tailwind`text-pink`}>Delete</Text>
-    //     // </TouchableOpacity>
-    //   );
-    // };
+    const renderRightActions = (progress: Animated.AnimatedInterpolation) => {
+      const translateX = progress.interpolate({
+        inputRange: [0, 1],
+        outputRange: [0, 100],
+      });
 
+      return (
+        <Animated.View
+          style={[
+            tailwind`bg-red-500 justify-center items-center flex-1`,
+            { transform: [{ translateX }] },
+          ]}
+        >
+          <Text style={tailwind`text-white`}>Delete</Text>
+        </Animated.View>
+      );
+    };
+    
     return (
       <Swipeable renderRightActions={renderRightActions}>
-        <TouchableOpacity
-          key={notification.id}
-          style={tailwind`flex  p-4 bg-pink-400 opacity-90 mt-2`}
-        >
-          <Text style={tailwind`text-white`}>{notification.title}</Text>
-          <Text style={tailwind`mt-3 text-gray-100`}>{notification.message}</Text>
-        
-        </TouchableOpacity>
-      </Swipeable>
+          <Animated.View style={[
+            tailwind`flex flex-row justify-between items-center p-4 bg-pink-400 mt-2 opacity-90`,
+            {
+              transform: [
+                {
+                  translateX: swipeAnimatedValue.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0, 1000], // Move the item off-screen when swiped
+                }),
+              },
+            ],
+          },
+        ]}
+        key={notification.id}
+      >
+        <Text style={tailwind`text-white`}>{notification.title}</Text>
+        <Text style={tailwind`mt-3 text-gray-100`}>{notification.message}</Text>
+            
+      </Animated.View>
+    </Swipeable>
     );
   };
-  const renderRightActions = () => {
-    return (
-      <TouchableOpacity style={tailwind`bg-red-500 justify-center items-center flex-1`}>
-        <Text style={tailwind`text-white`}>Delete</Text>
-      </TouchableOpacity>
-    );
-  };
-    
+  
   return (
     <Modal animationType="slide" transparent={true} visible={visible}>
       <View style={tailwind`flex-1 justify-center  items-center bg-white bg-opacity-96 p-4`}>
@@ -96,5 +118,6 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
 })
+
 
 export default NotificationModal;

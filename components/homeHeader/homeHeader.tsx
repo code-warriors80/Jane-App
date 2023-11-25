@@ -43,10 +43,18 @@ const HomeHeader = () => {
                                 <FIcon name='bell' size={15} color='white'/>
                             </TouchableOpacity>
 
-                            {notificationModalVisible && (
+                            {/* {notificationModalVisible && (
                                 <NotificationModal
                                     notifications={notifications}
                                     notificationText="notification"
+                                    onClose={toggleNotificationModal}
+                                    onDelete={handleDelete}
+                                />
+                            )} */}
+                            {notificationModalVisible && (
+                                <NotificationModal
+                                    notificationText="notification"
+                                    notifications={notifications}
                                     onClose={toggleNotificationModal}
                                     onDelete={handleDelete}
                                 />
