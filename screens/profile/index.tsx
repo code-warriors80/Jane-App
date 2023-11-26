@@ -23,7 +23,21 @@ const MenuList: React.FC<MenuListProps> = ({ icon, title, link }) => (
   </TouchableOpacity>
 );
 
+
+
 const ProfileScreen = () => {
+
+  const [notificationModalVisible, setNotificationModalVisible] = useState(false);
+
+    const [notifications, setNotifications] = useState<Notification[]>([
+        { id: 1,title:'A chat from jame vllay', message: 'How can i locate your shop?'},
+        { id: 2,title:'A chat from jon doe', message: 'How much do make fring wig?'},
+      ]);
+
+    const toggleNotificationModal = () => {
+        setNotificationModalVisible(!notificationModalVisible);
+    };
+
   const navigation = useNavigation()
   const [modal, setModal] = useState(false);
   const [loved, setLoved] = useState(false)
@@ -78,9 +92,10 @@ const ProfileScreen = () => {
             <Text style={tailwind`text-base text-gray-500`}>muctarmohammed07@gmail.com</Text>
             </View>
                 <View style={tailwind`flex-row gap-3`}>
-                          <TouchableOpacity style={tailwind`bg-[#ec589c] flex-row items-center justify-center p-3 rounded-xl`}>
+                          <TouchableOpacity onPress={toggleNotificationModal} style={tailwind`bg-[#ec589c] flex-row items-center justify-center p-3 rounded-xl`}>
                                 <FIcon name='bell' size={15} color='white'/>
                             </TouchableOpacity>
+                            
                             <TouchableOpacity style={tailwind`bg-[#ec589c] flex-row items-center justify-center p-3 rounded-xl`} onPress={Love}>
                                 {loved !== false ?  <Icon name='heart' size={15} color='white'/> :  <FIcon name='heart' size={15} color='white'/> }
                             </TouchableOpacity>

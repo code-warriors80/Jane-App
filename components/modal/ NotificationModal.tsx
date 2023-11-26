@@ -40,19 +40,19 @@ const NotificationModal: React.FC<NotificationModalProps> = ({
 
     const renderRightActions = (progress: Animated.AnimatedInterpolation) => {
       const translateX = progress.interpolate({
-        inputRange: [0, 1],
-        outputRange: [0, 100],
+        inputRange: [0, 100],
+        outputRange: [0, 1],
       });
 
       return (
-        <Animated.View
+        <View
           style={[
-            tailwind`bg-red-500 justify-center items-center flex-1`,
-            { transform: [{ translateX }] },
+            tailwind`bg-red-500 justify-center h-20 w-80 items-center flex-1`,
+            { transform: [{ translateX :0 }] },
           ]}
         >
           <Text style={tailwind`text-white`}>Delete</Text>
-        </Animated.View>
+        </View>
       );
     };
     
@@ -83,13 +83,13 @@ const NotificationModal: React.FC<NotificationModalProps> = ({
   
   return (
     <Modal animationType="slide" transparent={true} visible={visible}>
-      <View style={tailwind`flex-1 justify-center  items-center bg-white bg-opacity-96 p-4`}>
+      <View style={tailwind`flex-1 justify-center items-center bg-white bg-opacity-96 p-4`}>
         <View style={tailwind`p-4 w-full h-full`}>
           <TouchableOpacity onPress={onClose} style={styles.closeButton}>
             <FIcon name='chevron-left' size={30} color='#ec589c'/>
           </TouchableOpacity>
           <Text style={tailwind`text-2xl mx-auto font-bold mb-15 mt-4`}>Notifications</Text>
-          <View style={tailwind`flex-1`}>
+          <View style={tailwind`flex-1 w-full`}>
             {Array.isArray(notifications) && notifications.length > 0 ? (
               notifications.map((notification) => renderNotificationItem(notification))
             ) : (

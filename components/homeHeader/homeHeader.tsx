@@ -42,15 +42,6 @@ const HomeHeader = () => {
                             <TouchableOpacity onPress={toggleNotificationModal} style={tailwind`bg-[#ec589c] flex-row items-center justify-center p-3 rounded-xl`}>
                                 <FIcon name='bell' size={15} color='white'/>
                             </TouchableOpacity>
-
-                            {/* {notificationModalVisible && (
-                                <NotificationModal
-                                    notifications={notifications}
-                                    notificationText="notification"
-                                    onClose={toggleNotificationModal}
-                                    onDelete={handleDelete}
-                                />
-                            )} */}
                             {notificationModalVisible && (
                                 <NotificationModal
                                     notificationText="notification"
