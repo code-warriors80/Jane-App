@@ -1,22 +1,24 @@
 // AppNavigator.js
-import React from 'react';
-import { Text } from 'react-native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
 
+import BookingDetailsScreen from "../../screens/booking/bookingDetails";
 import BookingScreen from "../../screens/booking";
-import ChatsScreen from "../../screens/chats";
 import ChatItemScreen from "../../screens/chatItem";
+import ChatsScreen from "../../screens/chats";
 import EditDetailsScreen from "../../screens/profile/Edit_Details";
 import FIcon from "react-native-vector-icons/Feather";
-import HomeScreen from "../../screens/home";
 import HelpAndSupportScreen from "../../screens/helpandsupport";
+import HomeScreen from "../../screens/home";
 import LoginScreen from "../../screens/login";
 import OnboardingScreen from "../../screens/onboarding";
 import OtpScreen from "../../screens/otp/otp";
 import ProductScreen from "../../screens/products/products";
 import ProfileScreen from "../../screens/profile";
+import React from "react";
+import ReferralScreen from "../../screens/referral";
 import RegisterScreen from "../../screens/register";
+import { Text } from "react-native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -38,6 +40,11 @@ const BookingStack = () => (
       component={BookingScreen}
       options={{ headerShown: false }}
     />
+    <Stack.Screen
+      name="BookingDetailsStack"
+      component={BookingDetailsScreen}
+      options={{ headerShown: false }}
+    />
   </Stack.Navigator>
 );
 
@@ -56,6 +63,11 @@ const ProfileStack = () => (
     <Stack.Screen
       name="HelpsupportStack"
       component={HelpAndSupportScreen}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="ReferralStack"
+      component={ReferralScreen}
       options={{ headerShown: false }}
     />
   </Stack.Navigator>
