@@ -1,13 +1,15 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import tailwind from 'twrnc'
-import FIcon from 'react-native-vector-icons/Feather';
+// import FIcon from 'react-native-vector-icons/Feather';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { useNavigation } from '@react-navigation/native';
-import stylist1 from '../../assets/hairstyles/lemonade.jpg'
-import stylist2 from '../../assets/hairstyles/cornrow.jpg'
-import stylist3 from '../../assets/hairstyles/knotless-box.jpg'
-import stylist4 from '../../assets/hairstyles/triangle2.jpg'
+// import stylist1 from '../../assets/hairstyles/lemonade.jpg'
+// import stylist2 from '../../assets/hairstyles/cornrow.jpg'
+// import stylist3 from '../../assets/hairstyles/knotless-box.jpg'
+// import stylist4 from '../../assets/hairstyles/triangle2.jpg'
+
+import services from '../../data/services';
 
 const renderStars = (rating) => {
 
@@ -63,16 +65,20 @@ const ServicesList: React.FC<ServiceListProps> = ({image, name, description, pri
     </TouchableOpacity>
 )
 
-const Services = () => {
+const Services = ({setOpenModal}) => {
     const navigation = useNavigation()
+    
   return (
     <View style={tailwind`px-3`}>
         <Text style={tailwind`mb-3 font-extrabold text-lg`}>Services</Text>
         <View>
-            <ServicesList image={stylist1} name='Lemonade braids' description='this is a braid' rating={1} ratingnum='1.0' price={10} link={() => {}} />
-            <ServicesList image={stylist2} name='Cornrows' description='this is a braid' rating={2} ratingnum='2.0' price={50.00} link={() => {}} />
-            <ServicesList image={stylist3} name='Knotless braids' description='this is a braid' rating={5} ratingnum='5.0' price={80.00} link={() => {}} />
-            <ServicesList image={stylist4} name='Triangle braids' description='this is a braid' rating={3} ratingnum='3.0' price={80.00} link={() => {}} />
+          {services.map((service, index) => (
+            <ServicesList key={index} image={service.image} name={service.name} description={service.description} rating={service.rating} ratingnum={service.ratingnum} price={service.price} link={() => setOpenModal(true, {service})} />
+          ))}
+            
+            {/* <ServicesList image={stylist2} name='Cornrows' description='this is a braid' rating={2} ratingnum='2.0' price={50.00} link={() => setOpenModal(true)} />
+            <ServicesList image={stylist3} name='Knotless braids' description='this is a braid' rating={5} ratingnum='5.0' price={80.00} link={() => setOpenModal(true)} />
+            <ServicesList image={stylist4} name='Triangle braids' description='this is a braid' rating={3} ratingnum='3.0' price={80.00} link={() => setOpenModal(true)} /> */}
         </View>
     </View>
   )
