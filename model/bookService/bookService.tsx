@@ -4,6 +4,28 @@ import tailwind from 'twrnc'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import FIcon from "react-native-vector-icons/Feather";
 import stylist1 from '../../assets/hairstyles/lemonade.jpg'
+import Icon from 'react-native-vector-icons/AntDesign';
+
+const renderStars = (rating) => {
+
+  const stars = [];
+
+  for (let i = 0; i < 5; i++) {
+    const isFilled = i < rating;
+
+    stars.push(
+      <Text key={i}>
+        <Icon
+          name={isFilled ? 'star' : 'staro'}
+          color='#ec589c'
+          size={10}
+        />
+      </Text>
+    );
+  }
+
+  return stars;
+};
 
 const BookService = ({setOpenModal}) => {
   const [selectedItem, setSelectedItem] = useState('item1');
@@ -12,7 +34,7 @@ const BookService = ({setOpenModal}) => {
     setSelectedItem(itemValue);
   };
   return (
-    <SafeAreaView style={tailwind`flex-1`}>
+    <SafeAreaView style={tailwind`flex-1 bg-[#F2F2F2]`}>
       <View style={tailwind`bg-[#ec589c] py-5 px-4`}>
           <View style={tailwind`flex-row items-center gap-5`}>
               <TouchableOpacity onPress={() => setOpenModal(false)}>
@@ -22,19 +44,24 @@ const BookService = ({setOpenModal}) => {
           </View>
       </View>
 
-      <View style={tailwind`flex-row items-start justify-between p-4`}>
+      <View style={tailwind`flex-row items-start justify-between bg-white p-4 shadow`}>
           <View style={tailwind`flex-row items-center gap-5`}>
               <Image source={stylist1} style={tailwind`w-15 h-15 rounded-xl`}/>
               <View>
                 <Text style={tailwind`text-lg font-bold`}>Lemonade braids</Text>
                 <Text style={tailwind`text-xs text-gray-500`}>Lemonade braids</Text>
-                <Text style={tailwind`text-sm font-bold`}>N 1000</Text>
+                    <View style={tailwind`flex-row mt-1`}>
+                      {renderStars(3)}
+                    </View>
               </View>
           </View>
 
-          <TouchableOpacity>
-             <FIcon name='heart' size={20} color='#ec589c' />
-          </TouchableOpacity>
+        <View style={tailwind`h-full`}>
+                <TouchableOpacity>
+                            <FIcon name='heart' size={20} color='#ec589c' />
+                </TouchableOpacity>
+                <Text style={tailwind`text-base font-bold mt-3`}>N 1000</Text>
+        </View>
       </View>
 
       <ScrollView style={tailwind`flex-1`}>

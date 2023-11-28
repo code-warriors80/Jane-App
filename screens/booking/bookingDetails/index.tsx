@@ -1,4 +1,4 @@
-import { Image, Pressable, Text, View } from "react-native";
+import { Image, Pressable, Text, View, ScrollView } from "react-native";
 import React, { FC } from "react";
 
 import FIcon from "react-native-vector-icons/Feather";
@@ -84,38 +84,39 @@ const BookingDetailsScreen = () => {
         </View>
       </View>
 
-      <View style={tailwind`bg-[#F2F2F2]flex-1`}>
+      <ScrollView style={tailwind`flex-1`}>
         <View
-          style={tailwind`bg-white min-h-[130px]  flex flex-row justify-between gap-x-2 px-4 py-3 my-4 shadow`}
+          style={tailwind`bg-white flex flex-row justify-between gap-x-2 px-4 py-3 shadow`}
         >
-          <Image
-            style={tailwind`h-full w-[30%] rounded-lg`}
-            source={{ uri: "https://source.unsplash.com/user/c_v_r" }}
-          />
-
-          <View style={tailwind`py-4 w-[55%]`}>
-            <Text style={tailwind`text-base font-bold text-black`}>
-              Salon Iridescent
-            </Text>
-            {/* !TODO use react-native-ratings here*/}
-            <View
-              style={tailwind`flex w-[90%] mt-2  flex-row gap-x-1 items-center`}
-            >
-              <FIcon name="map-pin" style={tailwind`text-zinc-500`} size={15} />
-              <Text style={tailwind`text-sm font-bold text-zinc-500`}>
-                1901 Trowbidge cir. Shiloh
-              </Text>
-            </View>
+          <View style={tailwind`flex-row gap-3`}>
+              <Image
+                style={tailwind`w-16 h-16 rounded-lg`}
+                source={{ uri: "https://source.unsplash.com/user/c_v_r" }}
+              />
+              <View style={tailwind``}>
+                  <Text style={tailwind`text-base font-bold text-black`}>
+                    Salon Iridescent
+                  </Text>
+                  {/* !TODO use react-native-ratings here*/}
+                  <View
+                    style={tailwind`flex w-[90%] mt-2  flex-row gap-x-1 items-center`}
+                  >
+                    <FIcon name="map-pin" style={tailwind`text-zinc-500`} size={15} />
+                    <Text style={tailwind`text-sm font-bold text-zinc-500`}>
+                      1901 Trowbidge cir. Shiloh
+                    </Text>
+                  </View>
+          </View>
           </View>
 
-          <View style={tailwind`flex flex-col w-[10%] justify-between py-1.5`}>
+          <View style={tailwind`flex-row  items-start gap-2`}>
             <Pressable
-              style={tailwind`shadow-lg shadow-black px-2 py-2 bg-white rounded-full`}
+              style={tailwind`shadow-lg shadow-black bg-white p-2 rounded-full`}
             >
               <FIcon name="phone" color="black" size={18} />
             </Pressable>
             <Pressable
-              style={tailwind`shadow-lg shadow-black px-2 py-2 bg-white rounded-full`}
+              style={tailwind`shadow-lg shadow-black p-2  bg-white rounded-full`}
             >
               <FIcon name="message-circle" color="black" size={18} />
             </Pressable>
@@ -150,7 +151,7 @@ const BookingDetailsScreen = () => {
         <ListItem title="Partial highlight" text="$40" />
         <ListItem title="Coupon" text="-$10" />
         <ListItem title="Total pay" text="$70" isblack />
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

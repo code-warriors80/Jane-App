@@ -45,13 +45,12 @@ const ProfileScreen = () => {
   };
   return (
     <SafeAreaView style={tailwind`flex-1 bg-white`}>
-      <View style={tailwind`flex-1 px-6`}>
+      <View style={tailwind`flex-1`}>
         <Modal
           animationType="none"
           transparent={true}
           visible={modal}
           onRequestClose={() => setModal(false)}
-          style={tailwind`bg-red-300`}
         >
           <View style={tailwind`flex-1`}>
             <View
@@ -82,35 +81,35 @@ const ProfileScreen = () => {
         </Modal>
 
         <View
-          style={tailwind`flex-row items-start justify-between gap-3 pt-8 pb-4`}
+          style={tailwind`flex-row items-start justify-between gap-3 pt-5 pb-3 bg-[#ec589c] px-6`}
         >
           <View>
             <Image source={dp} style={tailwind`w-13 h-13 rounded-xl mb-3`} />
-            <Text style={tailwind`text-xl font-bold`}>Young Savage</Text>
-            <Text style={tailwind`text-base text-gray-500`}>
+            <Text style={tailwind`text-xl font-bold text-white`}>Young Savage</Text>
+            <Text style={tailwind`text-base text-white`}>
               muctarmohammed07@gmail.com
             </Text>
           </View>
           <View style={tailwind`flex-row gap-3`}>
             <TouchableOpacity
-              style={tailwind`bg-[#ec589c] flex-row items-center justify-center p-3 rounded-xl`}
+              style={tailwind`bg-white flex-row items-center justify-center p-3 rounded-xl`}
             >
-              <FIcon name="bell" size={15} color="white" />
+              <FIcon name="bell" size={15} color="#ec589c" />
             </TouchableOpacity>
             <TouchableOpacity
-              style={tailwind`bg-[#ec589c] flex-row items-center justify-center p-3 rounded-xl`}
+              style={tailwind`bg-white flex-row items-center justify-center p-3 rounded-xl`}
               onPress={Love}
             >
               {loved !== false ? (
-                <Icon name="heart" size={15} color="white" />
+                <Icon name="heart" size={15} color="#ec589c" />
               ) : (
-                <FIcon name="heart" size={15} color="white" />
+                <FIcon name="heart" size={15} color="#ec589c" />
               )}
             </TouchableOpacity>
           </View>
         </View>
 
-        <ScrollView showsVerticalScrollIndicator={false} style={tailwind`flex-1`}>
+        <ScrollView showsVerticalScrollIndicator={false} style={tailwind`flex-1 px-6`}>
           <MenuList
             icon="credit-card"
             title="Payment Method"

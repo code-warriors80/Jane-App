@@ -12,9 +12,9 @@ import BookService from '../../model/bookService/bookService'
 const HomeScreen = () => {
   const [openModal, setOpenModal] = useState(false)
   return (
-    <SafeAreaView style={tailwind`flex-1 bg-white`}>
+    <SafeAreaView style={tailwind`flex-1 bg-[#F4F8FC]`}>
       <HomeHeader />
-      <ScrollView showsVerticalScrollIndicator={false} style={tailwind`flex-1 px-3`}>
+      <ScrollView showsVerticalScrollIndicator={false} style={tailwind`flex-1 px-3 py-2`}>
         <Advert />
         <Category />
         <Stylist />

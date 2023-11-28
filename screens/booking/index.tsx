@@ -45,25 +45,25 @@ const CardItem: FC<CardProps> = ({ isActive }) => {
       // onPress={() => navigation.navigate("BookingDetailsStack")}
     >
       <Image
-        style={tailwind`h-full w-[30%] rounded-l-lg`}
+        style={tailwind`w-[34%] rounded-l-lg`}
         source={{ uri: "https://source.unsplash.com/user/c_v_r" }}
       />
-      <View style={tailwind`py-3`}>
+      <View style={tailwind`py-2`}>
         <Text style={tailwind`text-lg font-bold text-[#ec589c]`}>
           Salon Iridescent
         </Text>
-        <View style={tailwind`flex flex-row gap-x-1 items-center`}>
+        {/* <View style={tailwind`flex flex-row gap-x-1 items-center`}>
           <FIcon name="map-pin" style={tailwind`text-zinc-500`} />
-          <Text style={tailwind`text-base text-zinc-500`}>
+          <Text style={tailwind`text-sm text-zinc-500`}>
             1901 Trowbidge cir. Shiloh
           </Text>
-        </View>
-        <Text style={tailwind`text-base font-bold text-black`}>
+        </View> */}
+        <Text style={tailwind`text-xs font-bold text-zinc-500`}>
           26 June 2022 (9:00AM)
         </Text>
         {isActive ? (
-          <View style={tailwind`flex mt-2 flex-row gap-x-2 items-center`}>
-            <Pressable style={tailwind`shadow bg-white px-4  py-3 rounded-xl`}>
+          <View style={tailwind`flex mt-1 flex-row gap-x-2 items-center`}>
+            <Pressable style={tailwind`shadow bg-white px-4  py-3 rounded-xl`} onPress={() => navigation.navigate("BookingDetailsStack")}>
               <Text style={tailwind`text-base font-bold text-[#ec589c]`}>
                 Get direction
               </Text>
@@ -77,7 +77,7 @@ const CardItem: FC<CardProps> = ({ isActive }) => {
         ) : (
           <Pressable
             style={tailwind.style(
-              `shadow bg-white  mt-2 px-4 py-3 rounded-xl`,
+              `shadow bg-white  mt-1 px-4 py-3 rounded-xl`,
               { alignSelf: "flex-start" }
             )}
             onPress={() => navigation.navigate("BookingDetailsStack")}
@@ -97,7 +97,7 @@ const BookingScreen = () => {
   const Arr = new Array(15).fill(0);
   return (
     <SafeAreaView style={tailwind`flex-1 bg-[#F2F2F2]`}>
-      <View style={tailwind`bg-[#ec589c] relative py-5 px-5`}>
+      <View style={tailwind`bg-[#ec589c] relative py-4 px-5`}>
         <View style={tailwind`mb-4`}>
           <Text style={tailwind`text-white text-xl font-bold`}>Booking</Text>
           <Text style={tailwind`text-white text-sm`}>
@@ -120,7 +120,7 @@ const BookingScreen = () => {
           />
         </View>
       </View>
-      <ScrollView style={tailwind`flex-1 py-5 px-5`}>
+      <ScrollView style={tailwind`flex-1 my-1 px-5`}>
         {Arr.map((_, index) => (
           <CardItem isActive={activeTab === "Ongoing"} key={index} />
         ))}
