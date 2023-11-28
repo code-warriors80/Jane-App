@@ -19,6 +19,7 @@ import RegisterScreen from "../../screens/register";
 import { Text } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
+import AboutScreen from "../../screens/about";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -63,6 +64,11 @@ const ProfileStack = () => (
     <Stack.Screen
       name="HelpsupportStack"
       component={HelpAndSupportScreen}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="AboutStack"
+      component={AboutScreen}
       options={{ headerShown: false }}
     />
     <Stack.Screen

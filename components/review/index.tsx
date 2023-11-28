@@ -38,7 +38,7 @@ interface ReviewListProps {
 }
 
 const ReviewList: React.FC<ReviewListProps> = ({image, name, rating, message, link}) => (
-    <TouchableOpacity onPress={link} style={tailwind`bg-white p-5 rounded-xl mb-2`}>
+    <TouchableOpacity onPress={link} style={tailwind`bg-white p-5 rounded-xl mb-2 shadow`}>
     <View style={tailwind`bg-white flex-row items-center gap-3`}>
       <Image source={image} style={tailwind`w-15 h-15 rounded-full`}/>
       <View>
