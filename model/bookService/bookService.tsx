@@ -65,9 +65,12 @@ const renderStars = (rating) => {
   return stars;
 };
 
-const BookService = ({setOpenModal}, ...selectedService) => {
+const BookService = ({setOpenModal, selectedService}) => {
   const [selectedItem, setSelectedItem] = useState('item1');
   const [selectedTime, setSelectedTime] = useState(null); // Store the selected time
+
+  console.log("Selected Service in BookService:", selectedService);
+
 
   const handleItemChange = (itemValue) => {
     setSelectedItem(itemValue);
@@ -90,12 +93,12 @@ const BookService = ({setOpenModal}, ...selectedService) => {
 
       <View style={tailwind`flex-row items-start justify-between bg-white p-4 shadow`}>
           <View style={tailwind`flex-row items-center gap-5`}>
-              <Image source={stylist1} style={tailwind`w-15 h-15 rounded-xl`}/>
+              <Image source={selectedService.image} style={tailwind`w-15 h-15 rounded-xl`}/>
               <View>
-                <Text style={tailwind`text-lg font-bold`}>Lemonade braids</Text>
-                <Text style={tailwind`text-xs text-gray-500`}>Lemonade braids</Text>
+                <Text style={tailwind`text-lg font-bold`}>{selectedService.name}</Text>
+                <Text style={tailwind`text-xs text-gray-500`}>{selectedService.description}</Text>
                     <View style={tailwind`flex-row mt-1`}>
-                      {renderStars(3)}
+                      {renderStars(selectedService.rating)}
                     </View>
               </View>
           </View>
@@ -104,7 +107,7 @@ const BookService = ({setOpenModal}, ...selectedService) => {
                 <TouchableOpacity>
                             <FIcon name='heart' size={20} color='#ec589c' />
                 </TouchableOpacity>
-                <Text style={tailwind`text-base font-bold mt-3`}>N 1000</Text>
+                <Text style={tailwind`text-base font-bold mt-3`}>N {selectedService.price}</Text>
         </View>
       </View>
 

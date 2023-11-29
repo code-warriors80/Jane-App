@@ -11,6 +11,7 @@ import BookService from '../../model/bookService/bookService'
 
 const HomeScreen = () => {
   const [openModal, setOpenModal] = useState(false)
+  const [selectedService, setSelectedService] = useState(null);
   return (
     <SafeAreaView style={tailwind`flex-1 bg-[#F4F8FC]`}>
       <HomeHeader />
@@ -18,9 +19,12 @@ const HomeScreen = () => {
         <Advert />
         <Category />
         <Stylist />
-        <Services  setOpenModal={setOpenModal}/>
+        <Services setOpenModal={(isOpen, data) => {
+        setSelectedService(data.selectedService);
+        setOpenModal(isOpen);
+      }} />
         <Modal visible={openModal} animationType="fade">
-          <BookService setOpenModal={setOpenModal}/>
+          <BookService setOpenModal={setOpenModal} selectedService={selectedService}/>
         </Modal>
       </ScrollView>
     </SafeAreaView>

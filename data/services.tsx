@@ -5,7 +5,7 @@ import stylist4 from '../assets/hairstyles/triangle2.jpg'
 
 const services = [
     {
-        image: stylist1,
+        image: require('../assets/hairstyles/lemonade.jpg'), // Use require to fetch image,
         name: "Lemonade braids",
         description: "this is a braid",
         rating: 1,
@@ -13,7 +13,7 @@ const services = [
         price: 10
     },
     {
-        image: stylist2,
+        image: require('../assets/hairstyles/cornrow.jpg'), // Use require to fetch image,
         name: "Cornrows",
         description: "this is a braid",
         rating: 2,
@@ -21,7 +21,7 @@ const services = [
         price: 50
     },
     {
-        image: stylist3,
+        image: require('../assets/hairstyles/knotless-box.jpg'),
         name: "Knotless braids",
         description: "this is a braid",
         rating: 5,
@@ -29,7 +29,7 @@ const services = [
         price: 80
     },
     {
-        image: stylist4,
+        image: require('../assets/hairstyles/triangle2.jpg'),
         name: "Triangle braids",
         description: "this is a braid",
         rating: 3,

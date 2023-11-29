@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { View, Text, Image, TouchableOpacity, ImageSourcePropType } from 'react-native'
 import React from 'react'
 import tailwind from 'twrnc'
 import Icon from 'react-native-vector-icons/AntDesign';
@@ -27,7 +27,7 @@ const renderStars = (rating) => {
   return stars;
 };
 interface ServiceListProps {
-    image: any
+    image: ImageSourcePropType
     name: string
     description: string
     price: number
@@ -62,13 +62,15 @@ const ServicesList: React.FC<ServiceListProps> = ({image, name, description, pri
 
 const Services = ({setOpenModal}) => {
     const navigation = useNavigation()
-    
+    const handleBookService = (service) => {
+      setOpenModal(true, { selectedService: service }); // Pass the selected service as a parameter
+    };
   return (
     <View style={tailwind`px-3`}>
         <Text style={tailwind`mb-3 font-extrabold text-lg`}>Services</Text>
         <View>
           {services.map((service, index) => (
-            <ServicesList key={index} image={service.image} name={service.name} description={service.description} rating={service.rating} ratingnum={service.ratingnum} price={service.price} link={() => setOpenModal(true, {...service})} />
+            <ServicesList key={index} image={service.image} name={service.name} description={service.description} rating={service.rating} ratingnum={service.ratingnum} price={service.price} link={() => handleBookService(service)} />
           ))}
         </View>
     </View>
