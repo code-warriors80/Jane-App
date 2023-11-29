@@ -32,6 +32,8 @@ const MenuList: React.FC<MenuListProps> = ({ icon, title, link }) => (
   </TouchableOpacity>
 );
 
+
+
 const ProfileScreen = () => {
   const navigation = useNavigation();
   const [modal, setModal] = useState(false);

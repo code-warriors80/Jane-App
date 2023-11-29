@@ -12,16 +12,14 @@ const HomeHeader = () => {
     const [notificationModalVisible, setNotificationModalVisible] = useState(false);
 
     const [notifications, setNotifications] = useState<Notification[]>([
-        { id: 1, message: 'Notification 1' },
-        { id: 2, message: 'Notification 2' },
-        { id: 3, message: 'Notification 3' },
-        { id: 4, message: 'Notification 4' },
-        { id: 5, message: 'Notification 5' },
-        { id: 6, message: 'Notification 6' },
-        { id: 7, message: 'Notification 7' },
-        { id: 8, message: 'Notification 8' },
-        { id: 9, message: 'Notification 9' },
-        // Add more notifications here
+        { id: 1,title:'New Appointment', message: "Booked an appointment for january 23 2024, by 2:15pm, at Jane's Hair-pire",day:'today'},
+        { id: 2,title:'New Appointment', message: "Booked an appointment for April 2 2024, by 4:10pm, at Jane's Hair-pire",day:'yesterday'},
+        { id: 3,title:'New Appointment', message: "Booked an appointment for March 13 2024, by 11:20am, at Jane's Hair-pire",day:'yesterday'},
+        { id: 4,title:'New Appointment', message: "Booked an appointment for August 22 2024, by 12:15pm, at Jane's Hair-pire",day:'yesterday'},
+        { id: 5,title:'New Appointment', message: "Booked an appointment for june 4 2024, by 10:10am, at Jane's Hair-pire",day:'yesterday'},
+        { id: 6,title:'New Appointment', message: "Booked an appointment for june 4 2024, by 10:10am, at Jane's Hair-pire",day:'yesterday'},
+        { id: 7,title:'New Appointment', message: "Booked an appointment for june 4 2024, by 10:10am, at Jane's Hair-pire",day:'yesterday'},
+        { id: 8,title:'New Appointment', message: "Booked an appointment for june 4 2024, by 10:10am, at Jane's Hair-pire",day:'yesterday'},
       ]);
 
     const toggleNotificationModal = () => {
@@ -38,8 +36,8 @@ const HomeHeader = () => {
         }
     }
 
-      const handleDelete = (id: number) => {
-    const updatedNotifications = notifications.filter((notification) => notification.id !== id);
+    const handleDelete = (id: number) => {
+    const updatedNotifications = notifications.filter((notification) => notification.id !==id);
     setNotifications(updatedNotifications);
   };
   return (
@@ -50,11 +48,10 @@ const HomeHeader = () => {
                             <TouchableOpacity onPress={toggleNotificationModal} style={tailwind`bg-[#F4F8FC] flex-row items-center justify-center p-3 rounded-xl`}>
                                 <FIcon name='bell' size={15} color='#ec589c'/>
                             </TouchableOpacity>
-
                             {notificationModalVisible && (
                                 <NotificationModal
-                                    notifications={notifications}
                                     notificationText="notification"
+                                    notifications={notifications}
                                     onClose={toggleNotificationModal}
                                     onDelete={handleDelete}
                                 />
