@@ -12,8 +12,14 @@ const HomeHeader = () => {
     const [notificationModalVisible, setNotificationModalVisible] = useState(false);
 
     const [notifications, setNotifications] = useState<Notification[]>([
-        { id: 1,title:'A chat from jame vllay', message: 'How can i locate your shop?'},
-        { id: 2,title:'A chat from jon doe', message: 'How much do make fring wig?'},
+        { id: 1,title:'New Appointment', message: "Booked an appointment for january 23 2024, by 2:15pm, at Jane's Hair-pire",day:'today'},
+        { id: 2,title:'New Appointment', message: "Booked an appointment for April 2 2024, by 4:10pm, at Jane's Hair-pire",day:'yesterday'},
+        { id: 3,title:'New Appointment', message: "Booked an appointment for March 13 2024, by 11:20am, at Jane's Hair-pire",day:'yesterday'},
+        { id: 4,title:'New Appointment', message: "Booked an appointment for August 22 2024, by 12:15pm, at Jane's Hair-pire",day:'yesterday'},
+        { id: 5,title:'New Appointment', message: "Booked an appointment for june 4 2024, by 10:10am, at Jane's Hair-pire",day:'yesterday'},
+        { id: 6,title:'New Appointment', message: "Booked an appointment for june 4 2024, by 10:10am, at Jane's Hair-pire",day:'yesterday'},
+        { id: 7,title:'New Appointment', message: "Booked an appointment for june 4 2024, by 10:10am, at Jane's Hair-pire",day:'yesterday'},
+        { id: 8,title:'New Appointment', message: "Booked an appointment for june 4 2024, by 10:10am, at Jane's Hair-pire",day:'yesterday'},
       ]);
 
     const toggleNotificationModal = () => {
@@ -30,8 +36,8 @@ const HomeHeader = () => {
         }
     }
 
-      const handleDelete = (id: number) => {
-    const updatedNotifications = notifications.filter((notification) => notification.id !== id);
+    const handleDelete = (id: number) => {
+    const updatedNotifications = notifications.filter((notification) => notification.id !==id);
     setNotifications(updatedNotifications);
   };
   return (
