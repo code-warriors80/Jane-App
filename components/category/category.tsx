@@ -10,25 +10,25 @@ import icon5 from '../../assets/icons/icons8-nerd-hair-65.png'
 const Category = () => {
   return (
     <ScrollView horizontal  showsHorizontalScrollIndicator={false} style={tailwind`my-5` }>
-        <TouchableOpacity style={tailwind`bg-pink-300 p-2 rounded-lg mx-2`}>
+        <TouchableOpacity style={tailwind`p-2 rounded-lg mx-2`}>
             <Image source={icon1} style={tailwind`w-10 h-10 mx-auto`}/>
-            <Text style={tailwind`text-white text-center`}>Hair Style</Text>
+            <Text style={tailwind`text-center`}>Hair Clips</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={tailwind`bg-pink-300 p-2 rounded-lg mx-2`}>
+        <TouchableOpacity style={tailwind` p-2 rounded-lg mx-2`}>
             <Image source={icon2} style={tailwind`w-10 h-10 mx-auto`}/>
-            <Text style={tailwind`text-white text-center`}>Hair Style</Text>
+            <Text style={tailwind` text-center`}>Braidings</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={tailwind`bg-pink-300 p-2 rounded-lg mx-2`}>
+        <TouchableOpacity style={tailwind` p-2 rounded-lg mx-2`}>
             <Image source={icon3} style={tailwind`w-10 h-10 mx-auto`}/>
-            <Text style={tailwind`text-white text-center`}>Hair Style</Text>
+            <Text style={tailwind`text-center`}>Hair Dryer</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={tailwind`bg-pink-300 p-2 rounded-lg mx-2`}>
+        <TouchableOpacity style={tailwind`p-2 rounded-lg mx-2`}>
             <Image source={icon4} style={tailwind`w-10 h-10 mx-auto`}/>
-            <Text style={tailwind`text-white text-center`}>Hair Style</Text>
+            <Text style={tailwind` text-center`}>Washing</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={tailwind`bg-pink-300 p-2 rounded-lg mx-2`}>
+        <TouchableOpacity style={tailwind`p-2 rounded-lg mx-2`}>
             <Image source={icon5} style={tailwind`w-10 h-10 mx-auto`}/>
-            <Text style={tailwind`text-white text-center`}>Hair Style</Text>
+            <Text style={tailwind`text-center`}>Coloring</Text>
         </TouchableOpacity>
     </ScrollView>
   )

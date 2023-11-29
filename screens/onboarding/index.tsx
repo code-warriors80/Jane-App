@@ -56,10 +56,10 @@ const OnboardingScreen: React.FC = ({ navigation }) => {
         showDoneButton={true}
         onDone={handleDone}        
         dotStyle={tailwind`w-6 h-6 rounded-full bg-gray-300`}
-        activeDotStyle={tailwind`w-6 h-6 rounded-full bg-pink-500`}
+        activeDotStyle={tailwind`w-6 h-6 rounded-full bg-[#ec589c]`}
         onSkip={() => navigation.navigate('LoginStack')}
         dotStyle={tailwind`w-3 h-3 rounded-full bg-gray-300`}
-        activeDotStyle={tailwind`w-4 h-3 rounded-full bg-pink-500`}
+        activeDotStyle={tailwind`w-4 h-3 rounded-full bg-[#ec589c]`}
         renderDoneButton={() => (
           <TouchableOpacity style={tailwind`mr-4`} onPress={handleDone}>
             <Text style={tailwind`text-pink-500 font-semibold`}>Done</Text>

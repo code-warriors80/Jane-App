@@ -67,7 +67,7 @@ const ChatsScreen = () => {
           />
         </View>
       </View>
-      <ScrollView style={tailwind`bg-[#F2F2F2] flex-1 pb-6`}>
+      <ScrollView showsVerticalScrollIndicator={false} style={tailwind`bg-[#F2F2F2] flex-1 pb-6`}>
         {Arr.map((_, index) => (
           <ChatItem key={index} />
         ))}

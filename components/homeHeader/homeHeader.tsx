@@ -35,12 +35,12 @@ const HomeHeader = () => {
     setNotifications(updatedNotifications);
   };
   return (
-        <View style={tailwind`px-6 mb-3`}>
-                <View style={tailwind`flex-row items-start justify-between pt-8 pb-4`}>
+        <View style={tailwind`px-5 pb-2 bg-[#ec589c]`}>
+                <View style={tailwind`flex-row items-start justify-between pt-5 pb-4`}>
                     <Image source={dp} style={tailwind`w-13 h-13 rounded-xl`}/>
                     <View style={tailwind`flex-row gap-3`}>
-                            <TouchableOpacity onPress={toggleNotificationModal} style={tailwind`bg-[#ec589c] flex-row items-center justify-center p-3 rounded-xl`}>
-                                <FIcon name='bell' size={15} color='white'/>
+                            <TouchableOpacity onPress={toggleNotificationModal} style={tailwind`bg-[#F4F8FC] flex-row items-center justify-center p-3 rounded-xl`}>
+                                <FIcon name='bell' size={15} color='#ec589c'/>
                             </TouchableOpacity>
                             {notificationModalVisible && (
                                 <NotificationModal
@@ -51,13 +51,13 @@ const HomeHeader = () => {
                                 />
                             )}
 
-                            <TouchableOpacity style={tailwind`bg-[#ec589c] flex-row items-center justify-center p-3 rounded-xl`} onPress={Love}>
-                                {loved !== false ?  <Icon name='heart' size={15} color='white'/> :  <FIcon name='heart' size={15} color='white'/> }
+                            <TouchableOpacity style={tailwind`bg-[#F4F8FC] flex-row items-center justify-center p-3 rounded-xl`} onPress={Love}>
+                                {loved !== false ?  <Icon name='heart' size={15} color='#ec589c'/> :  <FIcon name='heart' size={15} color='#ec589c'/> }
                             </TouchableOpacity>
                     </View>
                 </View>
-                <Text style={tailwind`text-xl font-bold`}>Hi, Young Savage</Text>
-                <Text style={tailwind`text-base text-gray-500`}>Location</Text>
+                <Text style={tailwind`text-xl font-bold text-white`}>Hi, Young Savage</Text>
+                <Text style={tailwind`text-base text-white`}>Location</Text>
         </View>
   )
 }
