@@ -1,4 +1,4 @@
-import { Image, Pressable, ScrollView, Text, View } from "react-native";
+import { Image, TouchableOpacity, ScrollView, Text, View } from "react-native";
 import React, { FC, useState } from "react";
 
 import FIcon from "react-native-vector-icons/Feather";
@@ -19,7 +19,7 @@ const TabItem: FC<TabProps> = ({ text, activeTab, setActiveTab }) => {
   let isActive: boolean = text.toLowerCase() === activeTab.toLowerCase();
 
   return (
-    <Pressable
+    <TouchableOpacity
       disabled={isActive}
       style={tailwind`w-1/2 rounded-lg py-2 ${
         isActive ? "bg-white" : "bg-transparent"
@@ -33,14 +33,14 @@ const TabItem: FC<TabProps> = ({ text, activeTab, setActiveTab }) => {
       >
         {text}
       </Text>
-    </Pressable>
+    </TouchableOpacity>
   );
 };
 
 const CardItem: FC<CardProps> = ({ isActive }) => {
   const navigation = useNavigation();
   return (
-    <Pressable
+    <TouchableOpacity
       style={tailwind`bg-white flex flex-row gap-x-2 my-2 shadow rounded-lg`}
       // onPress={() => navigation.navigate("BookingDetailsStack")}
     >
@@ -63,19 +63,19 @@ const CardItem: FC<CardProps> = ({ isActive }) => {
         </Text>
         {isActive ? (
           <View style={tailwind`flex mt-1 flex-row gap-x-2 items-center`}>
-            <Pressable style={tailwind`shadow bg-white px-4  py-3 rounded-xl`} onPress={() => navigation.navigate("BookingDetailsStack")}>
+            <TouchableOpacity style={tailwind`shadow bg-white px-4  py-3 rounded-xl`} onPress={() => navigation.navigate("BookingDetailsStack")}>
               <Text style={tailwind`text-base font-bold text-[#ec589c]`}>
                 Get direction
               </Text>
-            </Pressable>
-            <Pressable style={tailwind`shadow bg-white px-4 py-3 rounded-xl`}>
+            </TouchableOpacity>
+            <TouchableOpacity style={tailwind`shadow bg-white px-4 py-3 rounded-xl`}>
               <Text style={tailwind`text-base font-bold text-zinc-500`}>
                 Cancel
               </Text>
-            </Pressable>
+            </TouchableOpacity>
           </View>
         ) : (
-          <Pressable
+          <TouchableOpacity
             style={tailwind.style(
               `shadow bg-white  mt-1 px-4 py-3 rounded-xl`,
               { alignSelf: "flex-start" }
@@ -85,10 +85,10 @@ const CardItem: FC<CardProps> = ({ isActive }) => {
             <Text style={tailwind`text-base font-bold text-[#ec589c]`}>
               Get Detail
             </Text>
-          </Pressable>
+          </TouchableOpacity>
         )}
       </View>
-    </Pressable>
+    </TouchableOpacity>
   );
 };
 
