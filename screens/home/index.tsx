@@ -20,9 +20,9 @@ const HomeScreen = () => {
         <Category />
         <Stylist />
         <Services setOpenModal={(isOpen, data) => {
-        setSelectedService(data.selectedService);
-        setOpenModal(isOpen);
-      }} />
+          setSelectedService(data.selectedService);
+          setOpenModal(isOpen);
+        }} />
         <Modal visible={openModal} animationType="fade">
           <BookService setOpenModal={setOpenModal} selectedService={selectedService}/>
         </Modal>
