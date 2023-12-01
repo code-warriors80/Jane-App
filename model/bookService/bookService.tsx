@@ -25,7 +25,7 @@ const TimeList: React.FC<TimeListProp> = ({timein, timeout, hour, link, isSelect
   <View style={tailwind`my-2`}>
     <TouchableOpacity
       style={[
-        tailwind`bg-white shadow rounded-xl p-2`,
+        tailwind`bg-white shadow rounded-xl p-2 py-3`,
         isSelected && tailwind`bg-[#ec589c]`, // Apply red background if isSelected is true
       ]}
       onPress={link}
@@ -155,9 +155,9 @@ const BookService: React.FC = ({setOpenModal, selectedService}) => {
           <Calendar
             {...calendarProps}
           />
-          {selectedDate ? (
+          {/* {selectedDate ? (
             <Text style={tailwind`mt-4`}>{`Selected Date: ${selectedDate}`}</Text>
-          ) : null}
+          ) : null} */}
       </View>
 
         <View style={tailwind`px-3`}>
