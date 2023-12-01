@@ -5,6 +5,7 @@ import FIcon from "react-native-vector-icons/Feather";
 import { SafeAreaView } from "react-native-safe-area-context";
 import tailwind from "twrnc";
 import { useNavigation } from "@react-navigation/native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 interface SectionProps {
   title: string;
@@ -110,16 +111,16 @@ const BookingDetailsScreen = () => {
           </View>
 
           <View style={tailwind`flex-row  items-start gap-2`}>
-            <Pressable
+            <TouchableOpacity
               style={tailwind`shadow-lg shadow-black bg-white p-2 rounded-full`}
             >
               <FIcon name="phone" color="black" size={18} />
-            </Pressable>
-            <Pressable
+            </TouchableOpacity>
+            <TouchableOpacity
               style={tailwind`shadow-lg shadow-black p-2  bg-white rounded-full`}
             >
               <FIcon name="message-circle" color="black" size={18} />
-            </Pressable>
+            </TouchableOpacity>
           </View>
         </View>
 

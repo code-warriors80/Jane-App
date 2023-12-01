@@ -4,6 +4,8 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import Stylist from '../stylist/stylist';
 import tailwind from 'twrnc';
+import ImageGallery from '../imageGallery/imageGallery';
+import Map from '../map/map';
 
 const InfoScreen = () => {
   return (
@@ -14,6 +16,22 @@ const InfoScreen = () => {
       </View>
       {/* Add your information content here */}
       <Stylist />
+      <View style={tailwind`p-2`}>
+       <Text style={tailwind`text-lg font-bold`}>Photo</Text>
+       <View>
+        <ImageGallery />
+       </View>
+      </View>
+
+      <View style={tailwind`pb-2`}>
+        <Text style={tailwind`text-lg font-bold`}>Working Hours</Text>
+        <Text>9:00 AM - 9:00 PM</Text>
+      </View>
+
+      <View style={tailwind`pb-2`}>
+        <Text style={tailwind`text-lg font-bold`}>Location</Text>
+        <Map />
+      </View>
     </View>
   );
 };

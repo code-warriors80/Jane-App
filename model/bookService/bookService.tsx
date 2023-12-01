@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import FIcon from "react-native-vector-icons/Feather";
 import stylist1 from '../../assets/hairstyles/lemonade.jpg'
 import Icon from 'react-native-vector-icons/AntDesign';
+import { Calendar, DateObject, CalendarProps } from 'react-native-calendars';
 
 interface TimeListProp {
     timein: string
@@ -65,11 +66,48 @@ const renderStars = (rating) => {
   return stars;
 };
 
-const BookService = ({setOpenModal, selectedService}) => {
+const BookService: React.FC = ({setOpenModal, selectedService}) => {
   const [selectedItem, setSelectedItem] = useState('item1');
   const [selectedTime, setSelectedTime] = useState(null); // Store the selected time
+  const [selectedDate, setSelectedDate] = useState<string>('2023-12-15'); // Replace with your desired date
 
-  console.log("Selected Service in BookService:", selectedService);
+  const markedDates: { [date: string]: DateObject } = {
+    [selectedDate]: {
+      selected: true,
+      disableTouchEvent: true,
+      selectedDotColor: '#ec589c',
+    },
+  };
+
+  const handleDayPress = (day: DateObject) => {
+    console.log('Selected day:', day);
+    setSelectedDate(day.dateString);
+  };
+
+  console.log('Render - Selected Date:', selectedDate);
+
+  const calendarProps: CalendarProps = {
+    onDayPress: handleDayPress,
+    monthFormat: 'MM',
+    markedDates: markedDates,
+    markingType: 'custom',
+    renderHeader: (date: DateObject) => {
+      const monthName = date.toString('MMMM'); // Get the current month's name
+      return (
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: 10 }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{monthName}</Text>
+        </View>
+      );
+    },
+    theme: {
+      selectedDayBackgroundColor: '#ec589c',
+      todayTextColor: '#ec589c',
+      textDayFontSize: 10, // Set the text size for days
+    },
+    style: {
+      borderRadius: 10, // Set the border radius
+    },
+  };
 
 
   const handleItemChange = (itemValue) => {
@@ -91,7 +129,7 @@ const BookService = ({setOpenModal, selectedService}) => {
           </View>
       </View>
 
-      <View style={tailwind`flex-row items-start justify-between bg-white p-4 shadow`}>
+      <View style={tailwind`flex-row items-start justify-between bg-white p-4 shadow z-50`}>
           <View style={tailwind`flex-row items-center gap-5`}>
               <Image source={selectedService.image} style={tailwind`w-15 h-15 rounded-xl`}/>
               <View>
@@ -111,7 +149,16 @@ const BookService = ({setOpenModal, selectedService}) => {
         </View>
       </View>
 
-      <ScrollView style={tailwind`flex-1 px-2 py-3`}>
+      <ScrollView style={tailwind`flex-1 px-2 `}>
+
+      <View style={tailwind`w-full pb-5 mt-3 px-3 rounded-lg z-20`}>
+          <Calendar
+            {...calendarProps}
+          />
+          {selectedDate ? (
+            <Text style={tailwind`mt-4`}>{`Selected Date: ${selectedDate}`}</Text>
+          ) : null}
+      </View>
 
         <View style={tailwind`px-3`}>
             <Text>Available Time</Text>
@@ -160,7 +207,7 @@ const BookService = ({setOpenModal, selectedService}) => {
 
       {/* <Text>Selected Item: {selectedItem}</Text> */}
     </ScrollView>
-    <View style={tailwind`p-5`}>
+    <View style={tailwind`p-4 px-5`}>
       <TouchableOpacity style={tailwind`bg-[#ec589c] p-4 rounded-full`}>
         <Text style={tailwind`text-white text-center`}>Book Appointment</Text>
       </TouchableOpacity>
