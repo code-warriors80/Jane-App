@@ -11,7 +11,7 @@ import HomeScreen from "../../screens/home";
 import LoginScreen from "../../screens/login";
 import OnboardingScreen from "../../screens/onboarding";
 import OtpScreen from "../../screens/otp/otp";
-import ProductScreen from "../../screens/products/products";
+import CheckoutScreen from "../../screens/checkout";
 import ProfileScreen from "../../screens/profile";
 import React from "react";
 import ReferralScreen from "../../screens/referral";
@@ -29,6 +29,11 @@ const HomeStack = () => (
     <Stack.Screen
       name="HomeStack"
       component={HomeScreen}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="CheckoutStack"
+      component={CheckoutScreen}
       options={{ headerShown: false }}
     />
   </Stack.Navigator>

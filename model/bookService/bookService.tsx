@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Platform, Button, Image, ScrollView } from 'react-native'
+import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native'
 import React, {useState} from 'react'
 import tailwind from 'twrnc'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -6,6 +6,7 @@ import FIcon from "react-native-vector-icons/Feather";
 import stylist1 from '../../assets/hairstyles/lemonade.jpg'
 import Icon from 'react-native-vector-icons/AntDesign';
 import { Calendar, DateObject, CalendarProps } from 'react-native-calendars';
+import { useNavigation } from '@react-navigation/native';
 
 interface TimeListProp {
     timein: string
@@ -67,9 +68,18 @@ const renderStars = (rating) => {
 };
 
 const BookService: React.FC = ({setOpenModal, selectedService}) => {
+  const navigation = useNavigation()
   const [selectedItem, setSelectedItem] = useState('item1');
   const [selectedTime, setSelectedTime] = useState(null); // Store the selected time
-  const [selectedDate, setSelectedDate] = useState<string>('2023-12-15'); // Replace with your desired date
+  
+  const currentDate = new Date();
+  const year = currentDate.getFullYear();
+  const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Adding 1 because months are zero-based
+  const day = String(currentDate.getDate()).padStart(2, '0');
+
+const initialDate = `${year}-${month}-${day}`;
+
+const [selectedDate, setSelectedDate] = useState<string>(initialDate);
 
   const markedDates: { [date: string]: DateObject } = {
     [selectedDate]: {
@@ -118,8 +128,13 @@ const BookService: React.FC = ({setOpenModal, selectedService}) => {
     setSelectedTime(time);
     console.log("Selected Time:", time); // Log the selected time to the console
   };
+
+  const handleBooking = () => {
+    navigation.navigate("CheckoutStack", { setOpenModal });
+    setOpenModal(false);
+  }
   return (
-    <SafeAreaView style={tailwind`flex-1 bg-[#F2F2F2]`}>
+    <SafeAreaView style={tailwind`flex-1 bg-[#F2F2F2] z-20`}>
       <View style={tailwind`bg-[#ec589c] py-5 px-4`}>
           <View style={tailwind`flex-row items-center gap-5`}>
               <TouchableOpacity onPress={() => setOpenModal(false)}>
@@ -208,7 +223,7 @@ const BookService: React.FC = ({setOpenModal, selectedService}) => {
       {/* <Text>Selected Item: {selectedItem}</Text> */}
     </ScrollView>
     <View style={tailwind`p-4 px-5`}>
-      <TouchableOpacity style={tailwind`bg-[#ec589c] p-4 rounded-full`}>
+      <TouchableOpacity style={tailwind`bg-[#ec589c] p-4 rounded-full`} onPress={handleBooking}>
         <Text style={tailwind`text-white text-center`}>Book Appointment</Text>
       </TouchableOpacity>
     </View>
