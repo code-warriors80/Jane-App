@@ -48,7 +48,7 @@ const ReviewList: React.FC<ReviewListProps> = ({image, name, rating, message, li
         </View>
       </View>
     </View>
-    <Text style={tailwind`mt-4`}>{message}</Text>
+    <Text style={tailwind`mt-4 text-zinc-500 `}>{message}</Text>
   </TouchableOpacity>
 )
 

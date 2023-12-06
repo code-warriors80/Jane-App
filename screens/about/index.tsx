@@ -71,10 +71,10 @@ const AboutScreen: React.FC = () => {
                             </View>
                         </View>
                         <View style={tailwind`flex-row items-center gap-2`}>
-                                    <TouchableOpacity style={tailwind`p-3  shadow rounded-full`}>
+                                    <TouchableOpacity style={tailwind`p-2 bg-white shadow rounded-full`}>
                                         <FIcon name='phone' size={20} color='gray'/>
                                     </TouchableOpacity>
-                                    <TouchableOpacity style={tailwind`p-3  shadow rounded-full`}>
+                                    <TouchableOpacity style={tailwind`p-2 bg-white  shadow rounded-full`}>
                                         <FIcon name='message-circle' size={20} color='gray'/>
                                     </TouchableOpacity>
                         </View>

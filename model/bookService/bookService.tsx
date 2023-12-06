@@ -223,7 +223,7 @@ const [selectedDate, setSelectedDate] = useState<string>(initialDate);
       {/* <Text>Selected Item: {selectedItem}</Text> */}
     </ScrollView>
     <View style={tailwind`p-4 px-5`}>
-      <TouchableOpacity style={tailwind`bg-[#ec589c] p-4 rounded-full`} onPress={handleBooking}>
+      <TouchableOpacity style={tailwind`bg-[#ec589c] p-4 rounded-lg`} onPress={handleBooking}>
         <Text style={tailwind`text-white text-center`}>Book Appointment</Text>
       </TouchableOpacity>
     </View>
