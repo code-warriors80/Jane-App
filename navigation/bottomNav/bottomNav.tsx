@@ -1,17 +1,19 @@
 // AppNavigator.js
 
+import AboutScreen from "../../screens/about";
 import BookingDetailsScreen from "../../screens/booking/bookingDetails";
 import BookingScreen from "../../screens/booking";
 import ChatItemScreen from "../../screens/chatItem";
 import ChatsScreen from "../../screens/chats";
+import CheckoutScreen from "../../screens/checkout";
 import EditDetailsScreen from "../../screens/profile/Edit_Details";
 import FIcon from "react-native-vector-icons/Feather";
+import ForgotPassword from "../../screens/forgotpassword";
 import HelpAndSupportScreen from "../../screens/helpandsupport";
 import HomeScreen from "../../screens/home";
 import LoginScreen from "../../screens/login";
 import OnboardingScreen from "../../screens/onboarding";
 import OtpScreen from "../../screens/otp/otp";
-import CheckoutScreen from "../../screens/checkout";
 import ProfileScreen from "../../screens/profile";
 import React from "react";
 import ReferralScreen from "../../screens/referral";
@@ -19,7 +21,6 @@ import RegisterScreen from "../../screens/register";
 import { Text } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
-import AboutScreen from "../../screens/about";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -119,6 +120,11 @@ const AuthStack = () => (
     <Stack.Screen
       name="OtpStack"
       component={OtpScreen}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="ForgotPasswordStack"
+      component={ForgotPassword}
       options={{ headerShown: false }}
     />
   </Stack.Navigator>
