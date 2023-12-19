@@ -66,24 +66,24 @@ const LoginScreen: React.FC = () => {
           onPress={() => navigation.navigate("ForgotPasswordStack")}
           style={tailwind`rounded-md mb-2`}
         >
-          <Text style={tailwind`text-lg text-right `}>forgot password?</Text>
+          <Text style={tailwind`text-xs text-right `}>forgot password?</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={tailwind`bg-[#ec589c] py-3  px-3 rounded-md mb-3`}
           onPress={handleSignup}
         >
-          <Text style={tailwind`text-white text-lg  font-semibold text-center`}>
+          <Text style={tailwind`text-white text-sm  font-semibold text-center`}>
             Sign in
           </Text>
         </TouchableOpacity>
 
         <View style={tailwind`flex-row items-center justify-center gap-1`}>
-          <Text>New To Our App</Text>
+          <Text style={tailwind`text-xs`}>New To Our App</Text>
           <TouchableOpacity
             onPress={() => navigation.navigate("RegisterStack")}
           >
-            <Text style={tailwind`text-[#ec589c]`}>Register</Text>
+            <Text style={tailwind`text-[#ec589c] text-xs`}>Register</Text>
           </TouchableOpacity>
         </View>
       </View>

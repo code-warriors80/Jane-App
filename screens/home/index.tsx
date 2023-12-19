@@ -21,17 +21,14 @@ const HomeScreen = () => {
         <Advert />
         <Category />
         <Stylist />
-        <Services setOpenModal={(isOpen, data) => {
-          setSelectedService(data.selectedService);
-          setOpenModal(isOpen);
-        }} />
+        <Services />
 
         <Modal visible={openNotification} animationType="fade">
           <Notification toggleNotification={setOpenNotification}/>
         </Modal>
 
         <Modal visible={openModal} animationType="fade">
-          <BookService setOpenModal={setOpenModal} selectedService={selectedService}/>
+          {/* <BookService setOpenModal={setOpenModal} selectedService={selectedService}/> */}
         </Modal>
       </ScrollView>
     </SafeAreaView>

@@ -60,17 +60,14 @@ const ServicesList: React.FC<ServiceListProps> = ({image, name, description, pri
     </TouchableOpacity>
 )
 
-const Services = ({setOpenModal}) => {
+const Services = () => {
     const navigation = useNavigation()
-    const handleBookService = (service) => {
-      setOpenModal(true, { selectedService: service }); // Pass the selected service as a parameter
-    };
   return (
     <View style={tailwind`px-3`}>
         <Text style={tailwind`mb-3 font-extrabold text-lg`}>Services</Text>
         <View>
           {services.map((service, index) => (
-            <ServicesList key={index} image={service.image} name={service.name} description={service.description} rating={service.rating} ratingnum={service.ratingnum} price={service.price} link={() => handleBookService(service)} />
+            <ServicesList key={index} image={service.image} name={service.name} description={service.description} rating={service.rating} ratingnum={service.ratingnum} price={service.price} link={() => navigation.navigate('SingleService', { service: service })} />
           ))}
         </View>
     </View>

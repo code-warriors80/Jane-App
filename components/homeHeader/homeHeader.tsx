@@ -29,7 +29,7 @@ const HomeHeader = ({toggleNotification}) => {
                             </TouchableOpacity>
                     </View>
                 </View>
-                <Text style={tailwind`text-xl font-bold text-white`}>Hi, Young Savage</Text>
+                <Text style={[tailwind`text-xl font-bold text-white`, {fontFamily: 'Font1'}]}>Hi, Young Savage</Text>
                 <Text style={tailwind`text-base text-white`}>Location</Text>
         </View>
   )

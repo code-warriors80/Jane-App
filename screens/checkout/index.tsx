@@ -96,6 +96,7 @@ const CheckoutScreen = ({navigation}) => {
     const route = useRoute(); // Use useRoute to get the route object
     const { params } = route;
     const setOpenModal = params?.setOpenModal;
+    const selectedService = route.params?.selectedService;
   
     const handleCheckoutClose = () => {
       // Close the Checkout screen
@@ -118,12 +119,12 @@ const CheckoutScreen = ({navigation}) => {
         </View>
               <View style={tailwind`bg-white flex-row items-start justify-between shadow  p-3 px-5 `}>
                     <View style={tailwind`flex-row items-start gap-3`}>
-                            <Image source={style1} style={tailwind`w-15 h-15 rounded-xl`}/>
+                            <Image source={selectedService.image} style={tailwind`w-15 h-15 rounded-xl`}/>
                             <View>
-                            <Text style={tailwind`text-lg font-bold`}>Braids</Text>
-                                <Text style={tailwind`text-xs text-gray-500`}>description</Text>
+                            <Text style={tailwind`text-lg font-bold`}>{selectedService.name}</Text>
+                                <Text style={tailwind`text-xs text-gray-500`}>{selectedService.description}</Text>
                                 <View style={tailwind`flex-row items-center my-2`}>
-                                    {renderStars(3)}
+                                    {renderStars(selectedService.rating)}
                                 </View>
                             </View>
                     </View>
@@ -190,7 +191,7 @@ const CheckoutScreen = ({navigation}) => {
                 </ScrollView>
                 <View style={tailwind`flex-row items-center justify-between p-5 py-2`}>
                           <View style={tailwind`flex-row items-center gap-3`}>
-                            <Text style={tailwind`text-sm`}>Total pay - <Text style={tailwind`text-lg text-[#ec589c] font-bold`}>$ 80</Text></Text>
+                            <Text style={tailwind`text-sm`}>Total pay - <Text style={tailwind`text-lg text-[#ec589c] font-bold`}>$ {selectedService.price}</Text></Text>
                           </View>
                           <TouchableOpacity style={tailwind`bg-[#ec589c] p-4 rounded-lg`}>
                             <Text style={tailwind`text-white`}>Confirm Booking</Text>

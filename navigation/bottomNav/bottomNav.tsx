@@ -21,6 +21,7 @@ import RegisterScreen from "../../screens/register";
 import { Text } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
+import SingleServicesScreen from "../../screens/singleService";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -35,6 +36,11 @@ const HomeStack = () => (
     <Stack.Screen
       name="CheckoutStack"
       component={CheckoutScreen}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="SingleService"
+      component={SingleServicesScreen}
       options={{ headerShown: false }}
     />
   </Stack.Navigator>

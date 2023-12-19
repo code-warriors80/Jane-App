@@ -130,7 +130,7 @@ const [selectedDate, setSelectedDate] = useState<string>(initialDate);
   };
 
   const handleBooking = () => {
-    navigation.navigate("CheckoutStack", { setOpenModal });
+    navigation.navigate("CheckoutStack", { setOpenModal, selectedService });
     setOpenModal(false);
   }
   return (

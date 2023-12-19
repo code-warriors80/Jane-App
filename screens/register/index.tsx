@@ -98,13 +98,13 @@ const SignupScreen: React.FC = () => {
           </View>
 
           <TouchableOpacity style={tailwind`bg-[#ec589c] py-3  px-3 rounded-md mb-3`} onPress={handleSignup}>
-            <Text style={tailwind`text-white text-lg  font-semibold text-center`}>Sign Up</Text>
+            <Text style={tailwind`text-white text-sm  font-semibold text-center`}>Sign Up</Text>
           </TouchableOpacity>
 
           <View style={tailwind`flex-row items-center justify-center gap-2`}>
-            <Text>Already Have An Account</Text>
+            <Text style={tailwind`text-xs`}>Already Have An Account</Text>
             <TouchableOpacity onPress={() =>  navigation.navigate("LoginStack")}>
-              <Text style={tailwind`text-[#ec589c]`}>Login</Text>
+              <Text style={tailwind`text-[#ec589c] text-xs`}>Login</Text>
             </TouchableOpacity>
           </View>
       </View>

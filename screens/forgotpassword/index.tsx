@@ -1,5 +1,6 @@
 import {
   Image,
+  SafeAreaView,
   ScrollView,
   Text,
   TextInput,
@@ -14,14 +15,15 @@ import tailwind from "twrnc";
 const ForgotPassword = () => {
   const [emailConfirmed, setEmailConfirmed] = useState(false);
   return (
-    <ScrollView style={tailwind` flex-1 py-20 px-8 border`}>
-      <Text style={tailwind`text-center text-2xl font-bold`}>
+    <SafeAreaView style={tailwind` flex-1`}>
+    <ScrollView style={tailwind` flex-1 px-8`}>
+      <Text style={tailwind`text-center text-2xl font-bold mt-10`}>
         Forgot Password
       </Text>
       <View style={tailwind`mt-4 items-center`}>
         <Image
           source={require("../../assets/images/reset-password.png")}
-          style={tailwind`w-64 h-64 mb-4`}
+          style={tailwind`w-40 h-40 mb-4`}
         />
       </View>
 
@@ -107,6 +109,7 @@ const ForgotPassword = () => {
         </Text>
       </TouchableOpacity>
     </ScrollView>
+    </SafeAreaView>
   );
 };
 
